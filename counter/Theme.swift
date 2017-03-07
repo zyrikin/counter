@@ -18,7 +18,6 @@ class Theme {
     static var appColorScheme: ColorScheme = .darkTheme {
         didSet {
             Theme.configureThemeForColorScheme(appColorScheme)
-            Theme.stylizeHUD()
         }
     }
     
@@ -48,11 +47,11 @@ private extension Theme {
         
         switch colorScheme {
         case .darkTheme:
-            tintColor = .darkBackgroundColor()
-            textColor = .white
+            tintColor = UIColor.darkBackground
+            textColor = UIColor.white
         case .lightTheme:
-            tintColor = .primaryColor();
-            textColor = .white
+            tintColor = UIColor.primary
+            textColor = UIColor.white
         }
         
         UINavigationBar.appearance().tintColor = .white
@@ -75,10 +74,10 @@ private extension Theme {
         
         switch colorScheme {
         case .darkTheme:
-            tintColor = .primaryColor();
+            tintColor = UIColor.primary
             barTintColor = .white
         case .lightTheme:
-            tintColor = .primaryColor();
+            tintColor = UIColor.primary
             barTintColor = .white;
         }
         
@@ -93,12 +92,12 @@ private extension Theme {
     
     class func stylizeBarButtonItemForColorScheme(_ colorScheme: ColorScheme) {
         
-        let backImage = UIImage(named: "first");
-        UIBarButtonItem.appearance(whenContainedInInstancesOf: [OUNavigationController.self]).setBackgroundImage(backImage, for: .normal, barMetrics: .default)
+//        let backImage = UIImage(named: "first");
+//        UIBarButtonItem.appearance(whenContainedInInstancesOf: [NZNavigationController.self]).setBackgroundImage(backImage, for: .normal, barMetrics: .default)
     }
     
     class func stylizeTextInputsForColorScheme(_ colorScheme: ColorScheme) {
-        UITextField.appearance().tintColor = UIColor.primaryColor()
-        UITextView.appearance().tintColor = UIColor.primaryColor()
+        UITextField.appearance().tintColor = UIColor.primary
+        UITextView.appearance().tintColor = UIColor.primary
     }
 }

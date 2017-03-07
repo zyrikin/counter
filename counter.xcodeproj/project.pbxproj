@@ -18,6 +18,12 @@
 		9F626DFE1E6F52530031D7C2 /* NZKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F626DFD1E6F52530031D7C2 /* NZKit.framework */; };
 		9F626DFF1E6F52530031D7C2 /* NZKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9F626DFD1E6F52530031D7C2 /* NZKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9F626E021E6F53160031D7C2 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F626E011E6F53160031D7C2 /* Theme.swift */; };
+		9F626E161E6F55500031D7C2 /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F626E151E6F55500031D7C2 /* UIColor+Additions.swift */; };
+		9F626E1B1E6F56E10031D7C2 /* UIFont+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F626E1A1E6F56E10031D7C2 /* UIFont+Additions.swift */; };
+		9F626E1D1E6F57700031D7C2 /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F626E1C1E6F57700031D7C2 /* UIView+Additions.swift */; };
+		9F626E1F1E6F57A70031D7C2 /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F626E1E1E6F57A70031D7C2 /* String+Additions.swift */; };
+		9F626E221E6F58950031D7C2 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F626E211E6F58950031D7C2 /* Localization.swift */; };
+		9F626E241E6F58D50031D7C2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F626E231E6F58D50031D7C2 /* Constants.swift */; };
 		D3B19D76FE37C45933996CCD /* Pods_counterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E6F6BCE7B25B50CE3E635F /* Pods_counterTests.framework */; };
 		DF31D2716E5A22F67A22FCA6 /* Pods_counterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38EBFDC7D10153A8530A5E3 /* Pods_counterUITests.framework */; };
 /* End PBXBuildFile section */
@@ -74,6 +80,12 @@
 		9F626DB81E6F49000031D7C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F626DFD1E6F52530031D7C2 /* NZKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NZKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F626E011E6F53160031D7C2 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		9F626E151E6F55500031D7C2 /* UIColor+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Additions.swift"; path = "Extensions/UIColor+Additions.swift"; sourceTree = "<group>"; };
+		9F626E1A1E6F56E10031D7C2 /* UIFont+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIFont+Additions.swift"; path = "Extensions/UIFont+Additions.swift"; sourceTree = "<group>"; };
+		9F626E1C1E6F57700031D7C2 /* UIView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Additions.swift"; path = "Extensions/UIView+Additions.swift"; sourceTree = "<group>"; };
+		9F626E1E1E6F57A70031D7C2 /* String+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Additions.swift"; path = "Extensions/String+Additions.swift"; sourceTree = "<group>"; };
+		9F626E211E6F58950031D7C2 /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localization.swift; path = Configurations/Localization.swift; sourceTree = "<group>"; };
+		9F626E231E6F58D50031D7C2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Configurations/Constants.swift; sourceTree = "<group>"; };
 		A41CE3B880CA6DF937680EA7 /* Pods-counter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-counter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-counter/Pods-counter.debug.xcconfig"; sourceTree = "<group>"; };
 		B38EBFDC7D10153A8530A5E3 /* Pods_counterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_counterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3E6F6BCE7B25B50CE3E635F /* Pods_counterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_counterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +157,8 @@
 		9F626D951E6F49000031D7C2 /* counter */ = {
 			isa = PBXGroup;
 			children = (
+				9F626E201E6F586A0031D7C2 /* Configurations */,
+				9F626E171E6F55530031D7C2 /* Extensions */,
 				9F626D961E6F49000031D7C2 /* AppDelegate.swift */,
 				9F626D981E6F49000031D7C2 /* ViewController.swift */,
 				9F626E011E6F53160031D7C2 /* Theme.swift */,
@@ -172,6 +186,26 @@
 				9F626DB81E6F49000031D7C2 /* Info.plist */,
 			);
 			path = counterUITests;
+			sourceTree = "<group>";
+		};
+		9F626E171E6F55530031D7C2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9F626E151E6F55500031D7C2 /* UIColor+Additions.swift */,
+				9F626E1A1E6F56E10031D7C2 /* UIFont+Additions.swift */,
+				9F626E1C1E6F57700031D7C2 /* UIView+Additions.swift */,
+				9F626E1E1E6F57A70031D7C2 /* String+Additions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		9F626E201E6F586A0031D7C2 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				9F626E231E6F58D50031D7C2 /* Constants.swift */,
+				9F626E211E6F58950031D7C2 /* Localization.swift */,
+			);
+			name = Configurations;
 			sourceTree = "<group>";
 		};
 		B3B1C5DCA2F203E9173A7CDB /* Pods */ = {
@@ -472,9 +506,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F626E1F1E6F57A70031D7C2 /* String+Additions.swift in Sources */,
+				9F626E1D1E6F57700031D7C2 /* UIView+Additions.swift in Sources */,
 				9F626E021E6F53160031D7C2 /* Theme.swift in Sources */,
+				9F626E1B1E6F56E10031D7C2 /* UIFont+Additions.swift in Sources */,
+				9F626E161E6F55500031D7C2 /* UIColor+Additions.swift in Sources */,
 				9F626D991E6F49000031D7C2 /* ViewController.swift in Sources */,
+				9F626E221E6F58950031D7C2 /* Localization.swift in Sources */,
 				9F626D971E6F49000031D7C2 /* AppDelegate.swift in Sources */,
+				9F626E241E6F58D50031D7C2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
