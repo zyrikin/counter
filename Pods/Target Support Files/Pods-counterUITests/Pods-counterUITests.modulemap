@@ -1,0 +1,6 @@
+framework module Pods_counterUITests {
+  umbrella header "Pods-counterUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
