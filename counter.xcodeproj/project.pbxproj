@@ -15,6 +15,9 @@
 		9F626DA11E6F49000031D7C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F626D9F1E6F49000031D7C2 /* LaunchScreen.storyboard */; };
 		9F626DAC1E6F49000031D7C2 /* counterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F626DAB1E6F49000031D7C2 /* counterTests.swift */; };
 		9F626DB71E6F49000031D7C2 /* counterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F626DB61E6F49000031D7C2 /* counterUITests.swift */; };
+		9F626DFE1E6F52530031D7C2 /* NZKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F626DFD1E6F52530031D7C2 /* NZKit.framework */; };
+		9F626DFF1E6F52530031D7C2 /* NZKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9F626DFD1E6F52530031D7C2 /* NZKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9F626E021E6F53160031D7C2 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F626E011E6F53160031D7C2 /* Theme.swift */; };
 		D3B19D76FE37C45933996CCD /* Pods_counterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E6F6BCE7B25B50CE3E635F /* Pods_counterTests.framework */; };
 		DF31D2716E5A22F67A22FCA6 /* Pods_counterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38EBFDC7D10153A8530A5E3 /* Pods_counterUITests.framework */; };
 /* End PBXBuildFile section */
@@ -36,6 +39,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		9F626E001E6F52530031D7C2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9F626DFF1E6F52530031D7C2 /* NZKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		22361CD142AF7C42A9FB1AD8 /* Pods-counterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-counterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-counterUITests/Pods-counterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2A936DA9AC9B517DD4C41D6D /* Pods-counter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-counter.release.xcconfig"; path = "Pods/Target Support Files/Pods-counter/Pods-counter.release.xcconfig"; sourceTree = "<group>"; };
@@ -55,6 +72,8 @@
 		9F626DB21E6F49000031D7C2 /* counterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = counterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F626DB61E6F49000031D7C2 /* counterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = counterUITests.swift; sourceTree = "<group>"; };
 		9F626DB81E6F49000031D7C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F626DFD1E6F52530031D7C2 /* NZKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NZKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F626E011E6F53160031D7C2 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A41CE3B880CA6DF937680EA7 /* Pods-counter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-counter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-counter/Pods-counter.debug.xcconfig"; sourceTree = "<group>"; };
 		B38EBFDC7D10153A8530A5E3 /* Pods_counterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_counterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3E6F6BCE7B25B50CE3E635F /* Pods_counterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_counterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +86,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				780AC9189572E8A5FA97A91D /* Pods_counter.framework in Frameworks */,
+				9F626DFE1E6F52530031D7C2 /* NZKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +112,7 @@
 		2E65B4B5B35DC4812CF2D04E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9F626DFD1E6F52530031D7C2 /* NZKit.framework */,
 				F561274E8866EC3CC16FA3B1 /* Pods_counter.framework */,
 				E3E6F6BCE7B25B50CE3E635F /* Pods_counterTests.framework */,
 				B38EBFDC7D10153A8530A5E3 /* Pods_counterUITests.framework */,
@@ -126,6 +147,7 @@
 			children = (
 				9F626D961E6F49000031D7C2 /* AppDelegate.swift */,
 				9F626D981E6F49000031D7C2 /* ViewController.swift */,
+				9F626E011E6F53160031D7C2 /* Theme.swift */,
 				9F626D9A1E6F49000031D7C2 /* Main.storyboard */,
 				9F626D9D1E6F49000031D7C2 /* Assets.xcassets */,
 				9F626D9F1E6F49000031D7C2 /* LaunchScreen.storyboard */,
@@ -178,6 +200,7 @@
 				9F626D911E6F49000031D7C2 /* Resources */,
 				ADA7F5CE70B4B60FC98ADC06 /* [CP] Embed Pods Frameworks */,
 				36165855F9B26AEFC4748700 /* [CP] Copy Pods Resources */,
+				9F626E001E6F52530031D7C2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -449,6 +472,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F626E021E6F53160031D7C2 /* Theme.swift in Sources */,
 				9F626D991E6F49000031D7C2 /* ViewController.swift in Sources */,
 				9F626D971E6F49000031D7C2 /* AppDelegate.swift in Sources */,
 			);
@@ -709,6 +733,7 @@
 				9F626DBD1E6F49000031D7C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9F626DBE1E6F49000031D7C2 /* Build configuration list for PBXNativeTarget "counterTests" */ = {
 			isa = XCConfigurationList;
@@ -717,6 +742,7 @@
 				9F626DC01E6F49000031D7C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9F626DC11E6F49000031D7C2 /* Build configuration list for PBXNativeTarget "counterUITests" */ = {
 			isa = XCConfigurationList;
@@ -725,6 +751,7 @@
 				9F626DC31E6F49000031D7C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
