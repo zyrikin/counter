@@ -12,23 +12,19 @@ import NZKit
 extension UIColor {
     
     class var primary: UIColor {
-        return UIColor(rgb: 0xff3366)
+        return UIColor(rgb: 0xffffff)
     }
     
     class var effect: UIColor {
-        return UIColor(rgb: 0x00d1d8)
-    }
-    
-    class var extra: UIColor {
-        return UIColor(rgb: 0xfffd60)
+        return UIColor(rgb: 0x54c7fc)
     }
     
     class var background: UIColor {
-        return UIColor(rgb: 0xf7f7f8)
+        return UIColor(rgb: 0x404040)
     }
     
     class var hairline: UIColor {
-        return UIColor(rgb: 0xeeeff2)
+        return UIColor(rgb: 0x4d4d4d)
     }
     
     class var tableViewCellPrimaryText: UIColor {
@@ -39,19 +35,15 @@ extension UIColor {
         return UIColor.gray
     }
     
-    class var outgoingChatBubble: UIColor {
-        return UIColor(rgb: 0x00d1d8)
-    }
-    
-    class var incomingChatBubble: UIColor {
-        return UIColor(rgb: 0xf7f7f8)
+    class var facebook: UIColor {
+        return UIColor(rgb: 0x3b5998)
     }
 }
 
 // MARK:- These methods are called based on the selected theme
 extension UIColor {
     class var darkBackground: UIColor {
-        return UIColor(rgb: 0x0f1111)
+        return UIColor(rgb: 0x333333)
     }
     
     class var lightBackground: UIColor {
@@ -60,10 +52,6 @@ extension UIColor {
     
     class var callToAction: UIColor {
         return UIColor.effect
-    }
-    
-    class var facebook: UIColor {
-        return UIColor(rgb: 0x3b5998)
     }
 }
 

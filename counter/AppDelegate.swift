@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Theming
         window!.backgroundColor = UIColor.darkBackground
-        Theme.appColorScheme = .lightTheme
+        Theme.appColorScheme = .darkTheme
         
         return true
     }

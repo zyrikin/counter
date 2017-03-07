@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import NZKit
 
 enum ColorScheme {
     case darkTheme
@@ -61,10 +62,10 @@ private extension Theme {
             NSFontAttributeName: UIFont.defaultFont(CGFloat(17))
         ]
         
-//        // Hide hairline
-//        UINavigationBar.appearance().translucent = false
-//        UINavigationBar.appearance().shadowImage = UIImage()
-//        UINavigationBar.appearance().setBackgroundImage(UIImage.imageWithColor(tintColor), forBarMetrics: .Default)
+        // Hide hairline
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().shadowImage = UIImage.imageWithColor(UIColor.hairline)
+        UINavigationBar.appearance().setBackgroundImage(UIImage.imageWithColor(tintColor), for: .default)
     }
     
     class func stylizeTabBarForColorScheme(_ colorScheme: ColorScheme) {
