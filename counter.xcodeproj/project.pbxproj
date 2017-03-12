@@ -36,6 +36,9 @@
 		9FDD34EA1E75ADD300CC0471 /* ProfileSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDD34E91E75ADD300CC0471 /* ProfileSettings.swift */; };
 		9FDD34EC1E75AE8700CC0471 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDD34EB1E75AE8700CC0471 /* Notifications.swift */; };
 		9FDD34EE1E75B38600CC0471 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDD34ED1E75B38600CC0471 /* CreateEventViewController.swift */; };
+		9FDD34F01E75C5F300CC0471 /* InputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDD34EF1E75C5F300CC0471 /* InputCell.swift */; };
+		9FDD34F21E75D02600CC0471 /* SelectColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDD34F11E75D02600CC0471 /* SelectColorCell.swift */; };
+		9FDD34F41E75D06600CC0471 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDD34F31E75D06600CC0471 /* CircleView.swift */; };
 		D3B19D76FE37C45933996CCD /* Pods_counterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E6F6BCE7B25B50CE3E635F /* Pods_counterTests.framework */; };
 		DF31D2716E5A22F67A22FCA6 /* Pods_counterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38EBFDC7D10153A8530A5E3 /* Pods_counterUITests.framework */; };
 /* End PBXBuildFile section */
@@ -111,6 +114,9 @@
 		9FDD34E91E75ADD300CC0471 /* ProfileSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileSettings.swift; path = Models/ProfileSettings.swift; sourceTree = "<group>"; };
 		9FDD34EB1E75AE8700CC0471 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Configurations/Notifications.swift; sourceTree = "<group>"; };
 		9FDD34ED1E75B38600CC0471 /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateEventViewController.swift; path = Controllers/CreateEventViewController.swift; sourceTree = "<group>"; };
+		9FDD34EF1E75C5F300CC0471 /* InputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputCell.swift; path = Cells/InputCell.swift; sourceTree = "<group>"; };
+		9FDD34F11E75D02600CC0471 /* SelectColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectColorCell.swift; path = Cells/SelectColorCell.swift; sourceTree = "<group>"; };
+		9FDD34F31E75D06600CC0471 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircleView.swift; path = Views/CircleView.swift; sourceTree = "<group>"; };
 		A41CE3B880CA6DF937680EA7 /* Pods-counter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-counter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-counter/Pods-counter.debug.xcconfig"; sourceTree = "<group>"; };
 		B38EBFDC7D10153A8530A5E3 /* Pods_counterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_counterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3E6F6BCE7B25B50CE3E635F /* Pods_counterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_counterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -271,6 +277,8 @@
 			children = (
 				9FBB75491E746CFA00E5601E /* BaseTableViewCell.swift */,
 				9FDD34DE1E757C7500CC0471 /* ButtonTableViewCell.swift */,
+				9FDD34EF1E75C5F300CC0471 /* InputCell.swift */,
+				9FDD34F11E75D02600CC0471 /* SelectColorCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -279,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				9FBB75501E749AC600E5601E /* SectionHeaderView.swift */,
+				9FDD34F31E75D06600CC0471 /* CircleView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -594,11 +603,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FBB75471E74678400E5601E /* EventService.swift in Sources */,
+				9FDD34F21E75D02600CC0471 /* SelectColorCell.swift in Sources */,
 				9FDD34EC1E75AE8700CC0471 /* Notifications.swift in Sources */,
 				9FBB75441E74667C00E5601E /* MainViewController.swift in Sources */,
 				9FBB753F1E74654A00E5601E /* Session.swift in Sources */,
 				9FDD34DF1E757C7500CC0471 /* ButtonTableViewCell.swift in Sources */,
 				9FBB75411E7465A500E5601E /* Event.swift in Sources */,
+				9FDD34F41E75D06600CC0471 /* CircleView.swift in Sources */,
 				9F626E1F1E6F57A70031D7C2 /* String+Additions.swift in Sources */,
 				9FDD34EE1E75B38600CC0471 /* CreateEventViewController.swift in Sources */,
 				9F626E1D1E6F57700031D7C2 /* UIView+Additions.swift in Sources */,
@@ -606,6 +617,7 @@
 				9FDD34E11E7586FE00CC0471 /* CreateSessionViewController.swift in Sources */,
 				9FBB75511E749AC600E5601E /* SectionHeaderView.swift in Sources */,
 				9F626E1B1E6F56E10031D7C2 /* UIFont+Additions.swift in Sources */,
+				9FDD34F01E75C5F300CC0471 /* InputCell.swift in Sources */,
 				9F626E161E6F55500031D7C2 /* UIColor+Additions.swift in Sources */,
 				9FBB754D1E74997800E5601E /* UITableView+Additions.swift in Sources */,
 				9F626E221E6F58950031D7C2 /* Localization.swift in Sources */,

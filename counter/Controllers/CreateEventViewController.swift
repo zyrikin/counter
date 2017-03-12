@@ -24,8 +24,15 @@ final class CreateEventViewController: NZBaseTableViewController {
         
         title = "New Event".localized
 
-        tableView.commonSetUp()
         prepareTableViewSections()
+    }
+    
+    override func setUp() {
+        super.setUp()
+        tableView.commonSetUp()
+        
+        tableView.register(InputCell.self)
+        tableView.register(SelectColorCell.self)
     }
     
     override func prepareTableViewSections() {
@@ -54,10 +61,16 @@ extension CreateEventViewController {
         
         switch row.name {
             
-        case Row.NameCell.rawValue, Row.DescriptionCell.rawValue, Row.ColorCell.rawValue:
+        case Row.NameCell.rawValue, Row.DescriptionCell.rawValue:
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: row.name, for: indexPath)
-            cell.textLabel?.text = row.data as? String
+            let cell: InputCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.inputTextField.placeholder = row.data as? String
+            return cell
+            
+        case Row.ColorCell.rawValue:
+            
+            let cell: SelectColorCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = row.data as? String
             return cell
             
         default:

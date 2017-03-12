@@ -14,9 +14,19 @@ class BaseTableViewCell: UITableViewCell {
         super.awakeFromNib()
         setupUI()
     }
+    
+    required override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupUI()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupUI()
+    }
 }
 
-fileprivate extension BaseTableViewCell {
+extension BaseTableViewCell {
     func setupUI() {
         textLabel?.textColor = UIColor.white.withAlphaComponent(0.8)
         textLabel?.font = UIFont.defaultFont(14)

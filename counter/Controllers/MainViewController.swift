@@ -69,7 +69,7 @@ extension MainViewController {
         
         case Row.AddSessionCell.rawValue, Row.AddEventCell.rawValue:
             
-            let cell: ButtonTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
+            let cell: ButtonTableViewCell = tableView.dequeueReusableCell(for: indexPath)
             cell.buttonLabel.text = row.data as? String
             return cell
         
