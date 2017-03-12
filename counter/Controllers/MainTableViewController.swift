@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import NZKit
 import SnapKit
 
-private enum Const {
+private enum Row: String {
     static let kAddSessionCellIdentifier = "AddSessionCell"
     static let kSessionCellIdentifier = "SessionCell"
     static let kAddEventCelIdentifier = "AddEventCell"
@@ -17,7 +18,7 @@ private enum Const {
     static let kHeaderIdentifier = "Header"
 }
 
-final class MainTableViewController: UITableViewController {
+final class MainTableViewController: NZBaseTableViewController {
 
     var sessions = [Session]()
     var events: [Event] = Array(EventService.shared.events)
@@ -26,24 +27,23 @@ final class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.backgroundColor = UIColor.background
-        tableView.separatorColor = UIColor.hairline
-        tableView.separatorInset = UIEdgeInsets.zero
-        tableView.tableFooterView = UIView()
-        tableView.estimatedRowHeight = 80
+        tableView.commonSetUp()
+        prepareTableViewSections()
         
         tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: Const.kHeaderIdentifier)
-
-        self.clearsSelectionOnViewWillAppear = false
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func prepareTableViewSections() {
+        super.prepareTableViewSections()
+        
+        addSection("Sessions") { section in
+            let headerTitle = "Sessions"
+            section.headerView = SectionHeaderView(title: headerTitle)
+            
+            section.addRow(<#T##name: String##String#>, height: <#T##CGFloat?#>, configure: <#T##(NZRow) -> Void#>)
+        }
     }
-
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }

@@ -14,13 +14,6 @@ class BaseTableViewCell: UITableViewCell {
         super.awakeFromNib()
         setupUI()
     }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
 
 fileprivate extension BaseTableViewCell {
@@ -29,7 +22,7 @@ fileprivate extension BaseTableViewCell {
         contentView.backgroundColor = UIColor.clear
         selectedBackgroundView = {
             let view = UIView()
-            view.backgroundColor = UIColor.hairline.withAlphaComponent(0.2)
+            view.backgroundColor = UIColor.hairline.withAlphaComponent(0.7)
             return view
         }()
     }

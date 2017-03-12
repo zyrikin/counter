@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension String {
-    var localizedString: String {
+    var localized: String {
         return Localization.sharedInstance.localizedStringForKey(self)
     }
     
