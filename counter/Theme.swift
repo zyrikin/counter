@@ -51,11 +51,11 @@ private extension Theme {
             tintColor = UIColor.darkBackground
             textColor = UIColor.white
         case .lightTheme:
-            tintColor = UIColor.primary
+            tintColor = UIColor.callToAction
             textColor = UIColor.white
         }
         
-        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().tintColor = tintColor
         UINavigationBar.appearance().barTintColor = tintColor
         UINavigationBar.appearance().titleTextAttributes = [
             NSForegroundColorAttributeName: textColor,
@@ -93,8 +93,11 @@ private extension Theme {
     
     class func stylizeBarButtonItemForColorScheme(_ colorScheme: ColorScheme) {
         
-//        let backImage = UIImage(named: "first");
-//        UIBarButtonItem.appearance(whenContainedInInstancesOf: [NZNavigationController.self]).setBackgroundImage(backImage, for: .normal, barMetrics: .default)
+        let backImage = UIImage(named: "first");
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationController.self]).setBackgroundImage(backImage, for: .normal, barMetrics: .default)
+        
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationController.self])
+            .setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.callToAction], for: .normal)
     }
     
     class func stylizeTextInputsForColorScheme(_ colorScheme: ColorScheme) {

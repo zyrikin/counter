@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        // App language
+        ProfileSettings.setAppLanguage(ProfileSettings.appLanguage())
+        
         // Theming
         window!.backgroundColor = UIColor.darkBackground
         Theme.appColorScheme = .darkTheme

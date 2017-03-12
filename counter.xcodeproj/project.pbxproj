@@ -31,6 +31,11 @@
 		9FBB754D1E74997800E5601E /* UITableView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB754C1E74997800E5601E /* UITableView+Additions.swift */; };
 		9FBB75511E749AC600E5601E /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB75501E749AC600E5601E /* SectionHeaderView.swift */; };
 		9FDD34DF1E757C7500CC0471 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDD34DE1E757C7500CC0471 /* ButtonTableViewCell.swift */; };
+		9FDD34E11E7586FE00CC0471 /* CreateSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDD34E01E7586FE00CC0471 /* CreateSessionViewController.swift */; };
+		9FDD34E51E75AD0700CC0471 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9FDD34E71E75AD0700CC0471 /* Localizable.strings */; };
+		9FDD34EA1E75ADD300CC0471 /* ProfileSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDD34E91E75ADD300CC0471 /* ProfileSettings.swift */; };
+		9FDD34EC1E75AE8700CC0471 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDD34EB1E75AE8700CC0471 /* Notifications.swift */; };
+		9FDD34EE1E75B38600CC0471 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDD34ED1E75B38600CC0471 /* CreateEventViewController.swift */; };
 		D3B19D76FE37C45933996CCD /* Pods_counterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E6F6BCE7B25B50CE3E635F /* Pods_counterTests.framework */; };
 		DF31D2716E5A22F67A22FCA6 /* Pods_counterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38EBFDC7D10153A8530A5E3 /* Pods_counterUITests.framework */; };
 /* End PBXBuildFile section */
@@ -100,6 +105,12 @@
 		9FBB754C1E74997800E5601E /* UITableView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITableView+Additions.swift"; path = "Extensions/UITableView+Additions.swift"; sourceTree = "<group>"; };
 		9FBB75501E749AC600E5601E /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionHeaderView.swift; path = Views/SectionHeaderView.swift; sourceTree = "<group>"; };
 		9FDD34DE1E757C7500CC0471 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonTableViewCell.swift; path = Cells/ButtonTableViewCell.swift; sourceTree = "<group>"; };
+		9FDD34E01E7586FE00CC0471 /* CreateSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateSessionViewController.swift; path = Controllers/CreateSessionViewController.swift; sourceTree = "<group>"; };
+		9FDD34E61E75AD0700CC0471 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9FDD34E81E75AD1800CC0471 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9FDD34E91E75ADD300CC0471 /* ProfileSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileSettings.swift; path = Models/ProfileSettings.swift; sourceTree = "<group>"; };
+		9FDD34EB1E75AE8700CC0471 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Configurations/Notifications.swift; sourceTree = "<group>"; };
+		9FDD34ED1E75B38600CC0471 /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateEventViewController.swift; path = Controllers/CreateEventViewController.swift; sourceTree = "<group>"; };
 		A41CE3B880CA6DF937680EA7 /* Pods-counter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-counter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-counter/Pods-counter.debug.xcconfig"; sourceTree = "<group>"; };
 		B38EBFDC7D10153A8530A5E3 /* Pods_counterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_counterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3E6F6BCE7B25B50CE3E635F /* Pods_counterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_counterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,9 +192,8 @@
 				9F626D961E6F49000031D7C2 /* AppDelegate.swift */,
 				9F626E011E6F53160031D7C2 /* Theme.swift */,
 				9F626D9A1E6F49000031D7C2 /* Main.storyboard */,
-				9F626D9D1E6F49000031D7C2 /* Assets.xcassets */,
+				9FDD34E21E75ACDA00CC0471 /* Resources */,
 				9F626D9F1E6F49000031D7C2 /* LaunchScreen.storyboard */,
-				9F626DA21E6F49000031D7C2 /* Info.plist */,
 			);
 			path = counter;
 			sourceTree = "<group>";
@@ -223,6 +233,7 @@
 			children = (
 				9F626E231E6F58D50031D7C2 /* Constants.swift */,
 				9F626E211E6F58950031D7C2 /* Localization.swift */,
+				9FDD34EB1E75AE8700CC0471 /* Notifications.swift */,
 			);
 			name = Configurations;
 			sourceTree = "<group>";
@@ -230,6 +241,7 @@
 		9FBB753D1E74653400E5601E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9FDD34E91E75ADD300CC0471 /* ProfileSettings.swift */,
 				9FBB753E1E74654A00E5601E /* Session.swift */,
 				9FBB75401E7465A500E5601E /* Event.swift */,
 			);
@@ -240,6 +252,8 @@
 			isa = PBXGroup;
 			children = (
 				9FBB75431E74667C00E5601E /* MainViewController.swift */,
+				9FDD34E01E7586FE00CC0471 /* CreateSessionViewController.swift */,
+				9FDD34ED1E75B38600CC0471 /* CreateEventViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -267,6 +281,16 @@
 				9FBB75501E749AC600E5601E /* SectionHeaderView.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		9FDD34E21E75ACDA00CC0471 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9F626D9D1E6F49000031D7C2 /* Assets.xcassets */,
+				9F626DA21E6F49000031D7C2 /* Info.plist */,
+				9FDD34E71E75AD0700CC0471 /* Localizable.strings */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		B3B1C5DCA2F203E9173A7CDB /* Pods */ = {
@@ -384,6 +408,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fi,
 			);
 			mainGroup = 9F626D8A1E6F49000031D7C2;
 			productRefGroup = 9F626D941E6F49000031D7C2 /* Products */;
@@ -403,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F626DA11E6F49000031D7C2 /* LaunchScreen.storyboard in Resources */,
+				9FDD34E51E75AD0700CC0471 /* Localizable.strings in Resources */,
 				9F626D9E1E6F49000031D7C2 /* Assets.xcassets in Resources */,
 				9F626D9C1E6F49000031D7C2 /* Main.storyboard in Resources */,
 			);
@@ -568,18 +594,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FBB75471E74678400E5601E /* EventService.swift in Sources */,
+				9FDD34EC1E75AE8700CC0471 /* Notifications.swift in Sources */,
 				9FBB75441E74667C00E5601E /* MainViewController.swift in Sources */,
 				9FBB753F1E74654A00E5601E /* Session.swift in Sources */,
 				9FDD34DF1E757C7500CC0471 /* ButtonTableViewCell.swift in Sources */,
 				9FBB75411E7465A500E5601E /* Event.swift in Sources */,
 				9F626E1F1E6F57A70031D7C2 /* String+Additions.swift in Sources */,
+				9FDD34EE1E75B38600CC0471 /* CreateEventViewController.swift in Sources */,
 				9F626E1D1E6F57700031D7C2 /* UIView+Additions.swift in Sources */,
 				9F626E021E6F53160031D7C2 /* Theme.swift in Sources */,
+				9FDD34E11E7586FE00CC0471 /* CreateSessionViewController.swift in Sources */,
 				9FBB75511E749AC600E5601E /* SectionHeaderView.swift in Sources */,
 				9F626E1B1E6F56E10031D7C2 /* UIFont+Additions.swift in Sources */,
 				9F626E161E6F55500031D7C2 /* UIColor+Additions.swift in Sources */,
 				9FBB754D1E74997800E5601E /* UITableView+Additions.swift in Sources */,
 				9F626E221E6F58950031D7C2 /* Localization.swift in Sources */,
+				9FDD34EA1E75ADD300CC0471 /* ProfileSettings.swift in Sources */,
 				9F626D971E6F49000031D7C2 /* AppDelegate.swift in Sources */,
 				9FBB754A1E746CFA00E5601E /* BaseTableViewCell.swift in Sources */,
 				9F626E241E6F58D50031D7C2 /* Constants.swift in Sources */,
@@ -634,6 +664,16 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		9FDD34E71E75AD0700CC0471 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9FDD34E61E75AD0700CC0471 /* en */,
+				9FDD34E81E75AD1800CC0471 /* fi */,
+			);
+			name = Localizable.strings;
+			path = Translations;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -641,6 +681,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -691,6 +732,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

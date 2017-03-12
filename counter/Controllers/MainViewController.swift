@@ -29,6 +29,8 @@ final class MainViewController: NZBaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Overview".localized
+        
         tableView.commonSetUp()
         prepareTableViewSections()
     }
@@ -37,23 +39,25 @@ final class MainViewController: NZBaseTableViewController {
         super.prepareTableViewSections()
         
         addSection(Section.sessions.rawValue) { section in
-            let headerTitle = "Sessions".uppercased()
+            let headerTitle = "Sessions".localized.uppercased()
             section.headerView = SectionHeaderView(title: headerTitle)
             
             section.addRow(Row.AddSessionCell.rawValue, height: 60, configure: { row in
-                row.data = "New Session"
+                row.data = "Create Session".localized
             })
         }
         
         addSection(Section.events.rawValue) { section in
-            let headerTitle = "Events".uppercased()
+            let headerTitle = "Events".localized.uppercased()
             section.headerView = SectionHeaderView(title: headerTitle)
             
             section.addRow(Row.AddEventCell.rawValue, height: 60, configure: {row in
-                row.data = "Add Event"
+                row.data = "Add Event".localized
             })
         }
     }
+    
+    @IBAction func prepareForUnWind(segue: UIStoryboardSegue) {}
 }
 
 // MARK:- UITableViewDataSource methods
@@ -67,6 +71,7 @@ extension MainViewController {
             
             let cell: ButtonTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
             cell.buttonLabel.text = row.data as? String
+            return cell
         
         default:
             break
@@ -82,11 +87,13 @@ extension MainViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        guard let section = getSection(indexPath) else { return }
+        guard let row = getRow(indexPath) else { return }
         
-        switch section.name  {
-        case Section.sessions.rawValue:
-            return
+        switch row.name  {
+        case Row.AddSessionCell.rawValue:
+            performSegue(withIdentifier: "ShowCreateSession", sender: self)
+        case Row.AddEventCell.rawValue:
+            performSegue(withIdentifier: "ShowAddEvent", sender: self)
         default:
             return
         }

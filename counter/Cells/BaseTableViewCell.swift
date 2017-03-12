@@ -18,8 +18,14 @@ class BaseTableViewCell: UITableViewCell {
 
 fileprivate extension BaseTableViewCell {
     func setupUI() {
+        textLabel?.textColor = UIColor.white.withAlphaComponent(0.8)
+        textLabel?.font = UIFont.defaultFont(14)
+        
+        detailTextLabel?.textColor = UIColor.white
+        detailTextLabel?.font = UIFont.defaultFont(17)
+        
         backgroundColor = UIColor.background
-        contentView.backgroundColor = UIColor.clear
+        contentView.backgroundColor = UIColor.background
         selectedBackgroundView = {
             let view = UIView()
             view.backgroundColor = UIColor.hairline.withAlphaComponent(0.7)

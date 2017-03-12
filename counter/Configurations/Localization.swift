@@ -31,11 +31,7 @@ final class Localization {
     }
     
     private func loadTargetLocalizations(locale: String) {
-        var localizationFilename: String?
-        
-        #if OUPAI
-            localizationFilename = "Oupai.strings"
-        #endif
+        let localizationFilename: String? = nil
         
         if let filename = localizationFilename {
             let localizations = getLocalizations(filename: filename, locale: locale)
