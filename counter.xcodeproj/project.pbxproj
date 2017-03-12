@@ -25,11 +25,12 @@
 		9F626E241E6F58D50031D7C2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F626E231E6F58D50031D7C2 /* Constants.swift */; };
 		9FBB753F1E74654A00E5601E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB753E1E74654A00E5601E /* Session.swift */; };
 		9FBB75411E7465A500E5601E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB75401E7465A500E5601E /* Event.swift */; };
-		9FBB75441E74667C00E5601E /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB75431E74667C00E5601E /* MainTableViewController.swift */; };
+		9FBB75441E74667C00E5601E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB75431E74667C00E5601E /* MainViewController.swift */; };
 		9FBB75471E74678400E5601E /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB75461E74678400E5601E /* EventService.swift */; };
 		9FBB754A1E746CFA00E5601E /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB75491E746CFA00E5601E /* BaseTableViewCell.swift */; };
 		9FBB754D1E74997800E5601E /* UITableView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB754C1E74997800E5601E /* UITableView+Additions.swift */; };
 		9FBB75511E749AC600E5601E /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB75501E749AC600E5601E /* SectionHeaderView.swift */; };
+		9FDD34DF1E757C7500CC0471 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDD34DE1E757C7500CC0471 /* ButtonTableViewCell.swift */; };
 		D3B19D76FE37C45933996CCD /* Pods_counterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E6F6BCE7B25B50CE3E635F /* Pods_counterTests.framework */; };
 		DF31D2716E5A22F67A22FCA6 /* Pods_counterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38EBFDC7D10153A8530A5E3 /* Pods_counterUITests.framework */; };
 /* End PBXBuildFile section */
@@ -93,11 +94,12 @@
 		9F626E231E6F58D50031D7C2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Configurations/Constants.swift; sourceTree = "<group>"; };
 		9FBB753E1E74654A00E5601E /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Session.swift; path = Models/Session.swift; sourceTree = "<group>"; };
 		9FBB75401E7465A500E5601E /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = Models/Event.swift; sourceTree = "<group>"; };
-		9FBB75431E74667C00E5601E /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTableViewController.swift; path = Controllers/MainTableViewController.swift; sourceTree = "<group>"; };
+		9FBB75431E74667C00E5601E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Controllers/MainViewController.swift; sourceTree = "<group>"; };
 		9FBB75461E74678400E5601E /* EventService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventService.swift; path = Services/EventService.swift; sourceTree = "<group>"; };
 		9FBB75491E746CFA00E5601E /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseTableViewCell.swift; path = Cells/BaseTableViewCell.swift; sourceTree = "<group>"; };
 		9FBB754C1E74997800E5601E /* UITableView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITableView+Additions.swift"; path = "Extensions/UITableView+Additions.swift"; sourceTree = "<group>"; };
 		9FBB75501E749AC600E5601E /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionHeaderView.swift; path = Views/SectionHeaderView.swift; sourceTree = "<group>"; };
+		9FDD34DE1E757C7500CC0471 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonTableViewCell.swift; path = Cells/ButtonTableViewCell.swift; sourceTree = "<group>"; };
 		A41CE3B880CA6DF937680EA7 /* Pods-counter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-counter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-counter/Pods-counter.debug.xcconfig"; sourceTree = "<group>"; };
 		B38EBFDC7D10153A8530A5E3 /* Pods_counterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_counterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3E6F6BCE7B25B50CE3E635F /* Pods_counterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_counterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -237,7 +239,7 @@
 		9FBB75421E74662900E5601E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9FBB75431E74667C00E5601E /* MainTableViewController.swift */,
+				9FBB75431E74667C00E5601E /* MainViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -254,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				9FBB75491E746CFA00E5601E /* BaseTableViewCell.swift */,
+				9FDD34DE1E757C7500CC0471 /* ButtonTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -565,8 +568,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FBB75471E74678400E5601E /* EventService.swift in Sources */,
-				9FBB75441E74667C00E5601E /* MainTableViewController.swift in Sources */,
+				9FBB75441E74667C00E5601E /* MainViewController.swift in Sources */,
 				9FBB753F1E74654A00E5601E /* Session.swift in Sources */,
+				9FDD34DF1E757C7500CC0471 /* ButtonTableViewCell.swift in Sources */,
 				9FBB75411E7465A500E5601E /* Event.swift in Sources */,
 				9F626E1F1E6F57A70031D7C2 /* String+Additions.swift in Sources */,
 				9F626E1D1E6F57700031D7C2 /* UIView+Additions.swift in Sources */,

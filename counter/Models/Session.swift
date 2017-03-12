@@ -10,6 +10,7 @@ import Foundation
 
 struct Session {
     let id: String
+    let date: Date
     let name: String
     var duration: TimeInterval = 0
     var events: [Event]

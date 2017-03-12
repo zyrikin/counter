@@ -34,10 +34,12 @@ class SectionHeaderView: UIView {
 // MARK:- Private methods
 private extension SectionHeaderView {
     func setupUI() {
+        backgroundColor = UIColor.darkBackground
+        
         addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (make) in
             make.left.right.equalTo(self).inset(15)
-            make.bottom.equalTo(self).inset(15)
+            make.bottom.equalTo(self).inset(10)
         }
     }
 }
