@@ -53,6 +53,22 @@ extension UIColor {
     class var callToAction: UIColor {
         return UIColor.effect
     }
+    
+    class var label1: UIColor {
+        return UIColor.white
+    }
+    
+    class var label2: UIColor {
+        return UIColor.white.withAlphaComponent(0.6)
+    }
+    
+    class var label3: UIColor {
+        return UIColor.white.withAlphaComponent(0.4)
+    }
+    
+    class var disclosure: UIColor {
+        return UIColor(rgb: 0xc7c7cc)
+    }
 }
 
 // MARK:- Notifications

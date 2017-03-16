@@ -1,8 +1,8 @@
 //
-//  CircleView.swift
+//  ColorIndicatorView.swift
 //  counter
 //
-//  Created by Nik Zakirin on 12/03/2017.
+//  Created by Nik Zakirin on 16/03/2017.
 //  Copyright © 2017 zaria. All rights reserved.
 //
 
@@ -10,8 +10,8 @@ import UIKit
 import NZKit
 
 @IBDesignable
-final class CircleView: NeverClearView {
-    
+final class ColorIndicatorView: NeverClearView {
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUp()
@@ -47,14 +47,14 @@ final class CircleView: NeverClearView {
     }
     
     override func draw(_ rect: CGRect) {
-        let width = self.bounds.maxY
-        self.layer.cornerRadius = width/2
+        self.layer.cornerRadius = 3
         self.layer.masksToBounds = true
     }
 }
 
-fileprivate extension CircleView {
+fileprivate extension ColorIndicatorView {
     func setUp() {
         
     }
 }
+

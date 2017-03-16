@@ -11,5 +11,13 @@ import Foundation
 final class EventService {
     static let shared = EventService()
     
-    private(set) var events = Set<Event>()
+    private(set) var events = [Event]()
+    
+    func add(event: Event) {
+        if let idx = events.index(of: event) {
+            events[idx] = event
+        } else {
+            events.insert(event, at: events.startIndex)
+        }
+    }
 }

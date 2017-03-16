@@ -9,6 +9,14 @@
 import UIKit
 import NZKit
 
+protocol CreateEventControllerDelegate: class {
+    func createEvent(controller: CreateEventViewController, didSave event: Event)
+}
+
+private enum Mode {
+    case edit, new
+}
+
 private enum Section: String {
     case info
 }
@@ -18,12 +26,25 @@ private enum Row: String {
 }
 
 final class CreateEventViewController: NZBaseTableViewController {
-
+    
+    weak var delegate: CreateEventControllerDelegate?
+    fileprivate var mode: Mode = .edit
+    
+    var event: Event?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "New Event".localized
-
+        tableView.setContentInsetWhenKeyboardIsShown()
+        
+        if event == nil {
+            title = "New Event".localized
+            mode = .new
+            event = Event(id: UUID().uuidString, name: "", description: "", color: UIColor.white)
+        } else {
+            title = "Edit Event".localized
+        }
+        
         prepareTableViewSections()
     }
     
@@ -40,37 +61,60 @@ final class CreateEventViewController: NZBaseTableViewController {
         
         addSection(Section.info.rawValue) { section in
             section.addRow(Row.NameCell.rawValue, height: 60, configure: { row in
-                row.data = "Name".localized
+                row.data = [
+                    "placeholder": "Name".localized,
+                    "value": event?.name
+                ]
             })
             
             section.addRow(Row.DescriptionCell.rawValue, height: 60, configure: { row in
-                row.data = "Description".localized
+                row.data = [
+                    "placeholder": "Description".localized,
+                    "value": event?.description
+                ]
             })
             
             section.addRow(Row.ColorCell.rawValue, height: 60, configure: { row in
-                row.data = "Color".localized
+                row.data = [
+                    "placeholder": "Color".localized,
+                    "value": event?.color ?? UIColor.white
+                ]
             })
         }
+    }
+    
+    @IBAction func savePressed(_ sender: UIBarButtonItem) {
+        tableView.endEditing(true)
+        
+        guard let event = event else { return }
+        
+        delegate?.createEvent(controller: self, didSave: event)
     }
 }
 
 // MARK:- UITableViewDataSource methods
 extension CreateEventViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let row = getRow(indexPath) else { return defaultCell(indexPath) }
+        guard let row = getRow(indexPath), let dict = row.data as? [String: Any] else { return defaultCell(indexPath) }
         
         switch row.name {
             
         case Row.NameCell.rawValue, Row.DescriptionCell.rawValue:
             
             let cell: InputCell = tableView.dequeueReusableCell(for: indexPath)
-            cell.inputTextField.placeholder = row.data as? String
+            cell.identifier = row.name
+            cell.inputTextField.placeholder = dict["placeholder"] as? String
+            cell.inputTextField.text = dict["value"] as? String
+            cell.delegate = self
             return cell
             
         case Row.ColorCell.rawValue:
             
             let cell: SelectColorCell = tableView.dequeueReusableCell(for: indexPath)
-            cell.titleLabel.text = row.data as? String
+            cell.titleLabel.text = dict["placeholder"] as? String
+            if let color = dict["value"] as? UIColor {
+                cell.color = color
+            }
             return cell
             
         default:
@@ -79,5 +123,25 @@ extension CreateEventViewController {
         
         return defaultCell(indexPath)
     }
+}
 
+// MARK:- InputCellDelegate methods
+extension CreateEventViewController: InputCellDelegate {
+    func textFieldDidBeginEditing(_ cell: InputCell, identifier: String?) {}
+    
+    func textFieldDidEndEditing(_ cell: InputCell, text: String, identifier: String?) {
+        guard let identifier = identifier else { return }
+        
+        switch identifier {
+        case Row.NameCell.rawValue: event?.name = text
+        case Row.DescriptionCell.rawValue: event?.description = text
+        default: break
+        }
+        
+        // Needed otherwise the entered text disappear
+        prepareTableViewSections()
+        tableView.reloadData()
+    }
+    
+    func textField(_ cell: InputCell, didChange text: String, identifier: String?) {}
 }

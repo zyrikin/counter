@@ -16,7 +16,13 @@ final class SelectColorCell: BaseTableViewCell {
         return $0
     }(UILabel())
     
-    lazy var colorView: CircleView = CircleView()
+    var color: UIColor = UIColor.white {
+        didSet {
+            self.colorView.color = color
+        }
+    }
+    
+    private lazy var colorView: CircleView = CircleView()
 
     override func setupUI() {
         super.setupUI()

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		780AC9189572E8A5FA97A91D /* Pods_counter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F561274E8866EC3CC16FA3B1 /* Pods_counter.framework */; };
+		9F0774531E7B190700B13235 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0774521E7B190700B13235 /* EventCell.swift */; };
+		9F0774551E7B19C700B13235 /* ColorIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0774541E7B19C700B13235 /* ColorIndicatorView.swift */; };
 		9F626D971E6F49000031D7C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F626D961E6F49000031D7C2 /* AppDelegate.swift */; };
 		9F626D9C1E6F49000031D7C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F626D9A1E6F49000031D7C2 /* Main.storyboard */; };
 		9F626D9E1E6F49000031D7C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F626D9D1E6F49000031D7C2 /* Assets.xcassets */; };
@@ -80,6 +82,8 @@
 		415A04613E19C0866B3A4013 /* Pods-counterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-counterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-counterTests/Pods-counterTests.release.xcconfig"; sourceTree = "<group>"; };
 		421FDB33DAEAF5415411EAC0 /* Pods-counterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-counterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-counterTests/Pods-counterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		52CFBF836692C14F160FBDFB /* Pods-counterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-counterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-counterUITests/Pods-counterUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9F0774521E7B190700B13235 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventCell.swift; path = Cells/EventCell.swift; sourceTree = "<group>"; };
+		9F0774541E7B19C700B13235 /* ColorIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorIndicatorView.swift; path = Views/ColorIndicatorView.swift; sourceTree = "<group>"; };
 		9F626D931E6F49000031D7C2 /* counter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = counter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F626D961E6F49000031D7C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F626D9B1E6F49000031D7C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -188,6 +192,8 @@
 		9F626D951E6F49000031D7C2 /* counter */ = {
 			isa = PBXGroup;
 			children = (
+				9F626D9A1E6F49000031D7C2 /* Main.storyboard */,
+				9F626D961E6F49000031D7C2 /* AppDelegate.swift */,
 				9FBB754B1E74995300E5601E /* Views */,
 				9FBB75481E746CCB00E5601E /* Cells */,
 				9FBB75451E74671B00E5601E /* Services */,
@@ -195,9 +201,7 @@
 				9F626E201E6F586A0031D7C2 /* Configurations */,
 				9F626E171E6F55530031D7C2 /* Extensions */,
 				9FBB75421E74662900E5601E /* Controllers */,
-				9F626D961E6F49000031D7C2 /* AppDelegate.swift */,
 				9F626E011E6F53160031D7C2 /* Theme.swift */,
-				9F626D9A1E6F49000031D7C2 /* Main.storyboard */,
 				9FDD34E21E75ACDA00CC0471 /* Resources */,
 				9F626D9F1E6F49000031D7C2 /* LaunchScreen.storyboard */,
 			);
@@ -279,6 +283,7 @@
 				9FDD34DE1E757C7500CC0471 /* ButtonTableViewCell.swift */,
 				9FDD34EF1E75C5F300CC0471 /* InputCell.swift */,
 				9FDD34F11E75D02600CC0471 /* SelectColorCell.swift */,
+				9F0774521E7B190700B13235 /* EventCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 			children = (
 				9FBB75501E749AC600E5601E /* SectionHeaderView.swift */,
 				9FDD34F31E75D06600CC0471 /* CircleView.swift */,
+				9F0774541E7B19C700B13235 /* ColorIndicatorView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -606,6 +612,7 @@
 				9FDD34F21E75D02600CC0471 /* SelectColorCell.swift in Sources */,
 				9FDD34EC1E75AE8700CC0471 /* Notifications.swift in Sources */,
 				9FBB75441E74667C00E5601E /* MainViewController.swift in Sources */,
+				9F0774531E7B190700B13235 /* EventCell.swift in Sources */,
 				9FBB753F1E74654A00E5601E /* Session.swift in Sources */,
 				9FDD34DF1E757C7500CC0471 /* ButtonTableViewCell.swift in Sources */,
 				9FBB75411E7465A500E5601E /* Event.swift in Sources */,
@@ -619,6 +626,7 @@
 				9F626E1B1E6F56E10031D7C2 /* UIFont+Additions.swift in Sources */,
 				9FDD34F01E75C5F300CC0471 /* InputCell.swift in Sources */,
 				9F626E161E6F55500031D7C2 /* UIColor+Additions.swift in Sources */,
+				9F0774551E7B19C700B13235 /* ColorIndicatorView.swift in Sources */,
 				9FBB754D1E74997800E5601E /* UITableView+Additions.swift in Sources */,
 				9F626E221E6F58950031D7C2 /* Localization.swift in Sources */,
 				9FDD34EA1E75ADD300CC0471 /* ProfileSettings.swift in Sources */,

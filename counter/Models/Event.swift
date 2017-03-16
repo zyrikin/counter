@@ -11,9 +11,9 @@ import UIKit
 
 struct Event: Hashable {
     let id: String
-    let name: String
-    let description: String
-    let color: UIColor
+    var name: String = ""
+    var description: String = ""
+    var color: UIColor = UIColor.white
     
     var hashValue: Int {
         return self.id.hashValue
