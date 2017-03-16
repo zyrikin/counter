@@ -9,6 +9,9 @@
 import UIKit
 
 class SectionHeaderView: UIView {
+    
+    fileprivate var horizontalInset: CGFloat = 15
+    
     var titleLabel: UILabel = {
         $0.font = UIFont.defaultBoldFont(11)
         $0.textColor = UIColor.white.withAlphaComponent(0.9)
@@ -25,21 +28,23 @@ class SectionHeaderView: UIView {
         setupUI()
     }
     
-    convenience init(title: String) {
+    convenience init(title: String, horizontalInset: CGFloat = 15) {
         self.init()
         titleLabel.text = title
+        self.horizontalInset = horizontalInset
+        
+        titleLabel.snp.makeConstraints { (make) in
+            make.left.right.equalTo(self).inset(horizontalInset)
+            make.bottom.equalTo(self).inset(10)
+        }
     }
 }
 
 // MARK:- Private methods
 private extension SectionHeaderView {
     func setupUI() {
-        backgroundColor = UIColor.darkBackground
+        backgroundColor = UIColor.background
         
         addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { (make) in
-            make.left.right.equalTo(self).inset(15)
-            make.bottom.equalTo(self).inset(10)
-        }
     }
 }

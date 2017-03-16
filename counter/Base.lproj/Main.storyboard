@@ -6,8 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -68,65 +66,6 @@
                                             <outlet property="buttonLabel" destination="QyM-4f-UfV" id="oBf-NT-fJQ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" rowHeight="80" id="IGk-vn-6xu" customClass="EventCell" customModule="counter" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="108" width="1024" height="80"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IGk-vn-6xu" id="4Yu-qg-FP3">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="79.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Awt-dw-TFK" customClass="ColorIndicatorView" customModule="counter" customModuleProvider="target">
-                                                    <rect key="frame" x="15" y="15" width="6" height="49.5"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="6" id="MOl-Fa-Mkh"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                            <color key="value" red="1" green="0.70588235290000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Fam-cM-6jN">
-                                                    <rect key="frame" x="31" y="15" width="135" height="49.5"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7C-lu-8fl">
-                                                            <rect key="frame" x="0.0" y="0.0" width="135" height="22.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAN-TL-EJ3">
-                                                            <rect key="frame" x="0.0" y="26.5" width="135" height="23"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_disclosure" translatesAutoresizingMaskIntoConstraints="NO" id="3Jt-eM-aHW">
-                                                    <rect key="frame" x="1001" y="32.5" width="8" height="13"/>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Fam-cM-6jN" firstAttribute="top" secondItem="4Yu-qg-FP3" secondAttribute="top" constant="15" id="1E2-W3-jVH"/>
-                                                <constraint firstAttribute="trailing" secondItem="3Jt-eM-aHW" secondAttribute="trailing" constant="15" id="3Od-Zr-HUG"/>
-                                                <constraint firstItem="Fam-cM-6jN" firstAttribute="leading" secondItem="Awt-dw-TFK" secondAttribute="trailing" constant="10" id="CAl-KI-iJH"/>
-                                                <constraint firstItem="Awt-dw-TFK" firstAttribute="leading" secondItem="4Yu-qg-FP3" secondAttribute="leading" constant="15" id="IJq-Wg-6m6"/>
-                                                <constraint firstItem="3Jt-eM-aHW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Fam-cM-6jN" secondAttribute="trailing" constant="10" id="UIX-YA-cNg"/>
-                                                <constraint firstAttribute="bottom" secondItem="Fam-cM-6jN" secondAttribute="bottom" constant="15" id="i2Q-Xv-abI"/>
-                                                <constraint firstAttribute="bottom" secondItem="Awt-dw-TFK" secondAttribute="bottom" constant="15" id="iRL-Q7-RfX"/>
-                                                <constraint firstItem="Awt-dw-TFK" firstAttribute="top" secondItem="4Yu-qg-FP3" secondAttribute="top" constant="15" id="l5S-nL-6dC"/>
-                                                <constraint firstItem="3Jt-eM-aHW" firstAttribute="centerY" secondItem="4Yu-qg-FP3" secondAttribute="centerYWithinMargins" id="zCn-tM-CDE"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="colorIndicatorView" destination="Awt-dw-TFK" id="C5l-u2-QLc"/>
-                                            <outlet property="descriptionLabel" destination="kAN-TL-EJ3" id="FEx-TS-aAg"/>
-                                            <outlet property="disclosure" destination="3Jt-eM-aHW" id="MZL-Hx-Gxi"/>
-                                            <outlet property="titleLabel" destination="y7C-lu-8fl" id="n13-Bk-meG"/>
-                                        </connections>
-                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -180,7 +119,11 @@
                                 <segue destination="2fP-i1-l5E" kind="unwind" unwindAction="prepareForUnWindWithSegue:" id="1Js-ou-X7a"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Create Session" id="vRm-Cq-9oA"/>
+                        <barButtonItem key="rightBarButtonItem" title="Create Session" id="vRm-Cq-9oA">
+                            <connections>
+                                <action selector="startPressed:" destination="tck-UK-yCb" id="4NP-uT-ubP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="x05-7m-4rM" id="bKi-Ar-ep2"/>
@@ -274,8 +217,5 @@
             <point key="canvasLocation" x="1494" y="1133"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="icn_disclosure" width="8" height="13"/>
-    </resources>
     <color key="tintColor" red="0.3294117647" green="0.78039215689999997" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

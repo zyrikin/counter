@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" rowHeight="80" id="ki9-S2-EJg" customClass="EventCell" customModule="counter" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ki9-S2-EJg" id="vUb-Ff-rJV">
+                <rect key="frame" x="0.0" y="0.0" width="1024" height="79"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="biC-ic-H6H" customClass="ColorIndicatorView" customModule="counter" customModuleProvider="target">
+                        <rect key="frame" x="15" y="15" width="6" height="49.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="6" id="5YC-Js-Gcz"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                <color key="value" red="1" green="0.70588235290000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="TnC-AY-20R">
+                        <rect key="frame" x="31" y="15" width="135" height="49.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Gy-4z-pVC">
+                                <rect key="frame" x="0.0" y="0.0" width="135" height="22.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jni-G3-WQl">
+                                <rect key="frame" x="0.0" y="26.5" width="135" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_disclosure" translatesAutoresizingMaskIntoConstraints="NO" id="NW4-dN-ifU">
+                        <rect key="frame" x="1001" y="32.5" width="8" height="13"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="TnC-AY-20R" firstAttribute="top" secondItem="vUb-Ff-rJV" secondAttribute="top" constant="15" id="4Jo-5G-yzY"/>
+                    <constraint firstItem="TnC-AY-20R" firstAttribute="leading" secondItem="biC-ic-H6H" secondAttribute="trailing" constant="10" id="8PP-fn-fNm"/>
+                    <constraint firstItem="biC-ic-H6H" firstAttribute="leading" secondItem="vUb-Ff-rJV" secondAttribute="leading" constant="15" id="KlJ-XC-q5Y"/>
+                    <constraint firstItem="biC-ic-H6H" firstAttribute="top" secondItem="vUb-Ff-rJV" secondAttribute="top" constant="15" id="Zfx-GC-hvI"/>
+                    <constraint firstItem="NW4-dN-ifU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TnC-AY-20R" secondAttribute="trailing" constant="10" id="fb4-HG-89I"/>
+                    <constraint firstAttribute="bottom" secondItem="TnC-AY-20R" secondAttribute="bottom" constant="15" id="opM-19-IXl"/>
+                    <constraint firstAttribute="trailing" secondItem="NW4-dN-ifU" secondAttribute="trailing" constant="15" id="t1S-aM-CZ5"/>
+                    <constraint firstItem="NW4-dN-ifU" firstAttribute="centerY" secondItem="vUb-Ff-rJV" secondAttribute="centerYWithinMargins" id="u2u-Uh-h6z"/>
+                    <constraint firstAttribute="bottom" secondItem="biC-ic-H6H" secondAttribute="bottom" constant="15" id="yf5-1R-Scr"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="colorIndicatorView" destination="biC-ic-H6H" id="Qmp-Ia-E5J"/>
+                <outlet property="descriptionLabel" destination="jni-G3-WQl" id="XHx-HV-aBu"/>
+                <outlet property="disclosure" destination="NW4-dN-ifU" id="mak-QX-8GJ"/>
+                <outlet property="titleLabel" destination="6Gy-4z-pVC" id="JPQ-vy-Hii"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icn_disclosure" width="8" height="13"/>
+    </resources>
+</document>

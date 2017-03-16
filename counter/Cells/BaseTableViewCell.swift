@@ -35,7 +35,7 @@ extension BaseTableViewCell {
         detailTextLabel?.font = UIFont.defaultFont(17)
         
         backgroundColor = UIColor.background
-        contentView.backgroundColor = UIColor.background
+        contentView.backgroundColor = UIColor.darkBackground
         selectedBackgroundView = {
             let view = UIView()
             view.backgroundColor = UIColor.hairline.withAlphaComponent(0.7)

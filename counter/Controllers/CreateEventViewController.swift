@@ -60,6 +60,9 @@ final class CreateEventViewController: NZBaseTableViewController {
         super.prepareTableViewSections()
         
         addSection(Section.info.rawValue) { section in
+            section.headerView = SectionHeaderView(title: "")
+            section.headerHeight = 15
+            
             section.addRow(Row.NameCell.rawValue, height: 60, configure: { row in
                 row.data = [
                     "placeholder": "Name".localized,

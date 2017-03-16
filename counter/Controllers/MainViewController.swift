@@ -28,6 +28,8 @@ final class MainViewController: NZBaseTableViewController {
         title = "Overview".localized
         
         tableView.commonSetUp()
+        tableView.register(UINib.init(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: EventCell.defaultReuseIdentifier)
+        
         prepareTableViewSections()
     }
 
