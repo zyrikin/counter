@@ -9,7 +9,7 @@ target 'counter' do
 # UI
 pod 'NVActivityIndicatorView'
 pod 'JVFloatLabeledTextField'
-pod 'ChameleonFramework/Swift'
+pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 
 # AutoLayout
 pod 'SnapKit'

@@ -7,10 +7,19 @@ PODS:
   - SnapKit (3.1.2)
 
 DEPENDENCIES:
-  - ChameleonFramework/Swift
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - JVFloatLabeledTextField
   - NVActivityIndicatorView
   - SnapKit
+
+EXTERNAL SOURCES:
+  ChameleonFramework:
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: acc480fbe023c6e5fe40f68593f4a70a8c4c7ad5
+    :git: https://github.com/ViccAlexander/Chameleon.git
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
@@ -18,6 +27,6 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: 5754be63ceecd1df8af37d3c088d81872feeb8b8
   SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
 
-PODFILE CHECKSUM: 2c16e14d251fec4eccaa694443a1b220c68b8e0a
+PODFILE CHECKSUM: f3c74b4fdee54b4531fcd89d83f285f5d1db69f6
 
 COCOAPODS: 1.2.0
