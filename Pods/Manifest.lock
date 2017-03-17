@@ -1,18 +1,23 @@
 PODS:
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
   - JVFloatLabeledTextField (1.1.1)
   - NVActivityIndicatorView (3.4)
   - SnapKit (3.1.2)
 
 DEPENDENCIES:
+  - ChameleonFramework/Swift
   - JVFloatLabeledTextField
   - NVActivityIndicatorView
   - SnapKit
 
 SPEC CHECKSUMS:
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   JVFloatLabeledTextField: 0e5524b097f102036214dd8279edc8ecf08b5e18
   NVActivityIndicatorView: 5754be63ceecd1df8af37d3c088d81872feeb8b8
   SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
 
-PODFILE CHECKSUM: d6c4da1bf1413dff3bc05048a55b6477264f1223
+PODFILE CHECKSUM: 2c16e14d251fec4eccaa694443a1b220c68b8e0a
 
 COCOAPODS: 1.2.0
