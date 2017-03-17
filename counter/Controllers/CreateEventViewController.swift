@@ -95,7 +95,7 @@ final class CreateEventViewController: NZBaseTableViewController {
     }
 }
 
-// MARK:- UITableViewDataSource methods
+// MARK:- UITableViewDataSource / Delegate methods
 extension CreateEventViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let row = getRow(indexPath), let dict = row.data as? [String: Any] else { return defaultCell(indexPath) }
@@ -125,6 +125,21 @@ extension CreateEventViewController {
         }
         
         return defaultCell(indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let row = getRow(indexPath), let dict = row.data as? [String: Any] else { return }
+        
+        switch row.name {
+            
+        case Row.ColorCell.rawValue:
+            if let colorPickerVC = UIStoryboard(name: "ColorPicker", bundle: nil).instantiateInitialViewController() {
+                navigationController?.pushViewController(colorPickerVC, animated: true)
+            }
+            
+        default:
+            break
+        }
     }
 }
 

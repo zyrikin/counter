@@ -26,6 +26,9 @@
 		9F626E1F1E6F57A70031D7C2 /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F626E1E1E6F57A70031D7C2 /* String+Additions.swift */; };
 		9F626E221E6F58950031D7C2 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F626E211E6F58950031D7C2 /* Localization.swift */; };
 		9F626E241E6F58D50031D7C2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F626E231E6F58D50031D7C2 /* Constants.swift */; };
+		9F7225921E7C632A008752DC /* ColorPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F7225911E7C632A008752DC /* ColorPicker.storyboard */; };
+		9F7225941E7C636E008752DC /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7225931E7C636E008752DC /* ColorPickerViewController.swift */; };
+		9F7225961E7C641A008752DC /* ColorPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7225951E7C641A008752DC /* ColorPickerCell.swift */; };
 		9FBB753F1E74654A00E5601E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB753E1E74654A00E5601E /* Session.swift */; };
 		9FBB75411E7465A500E5601E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB75401E7465A500E5601E /* Event.swift */; };
 		9FBB75441E74667C00E5601E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB75431E74667C00E5601E /* MainViewController.swift */; };
@@ -106,6 +109,9 @@
 		9F626E1E1E6F57A70031D7C2 /* String+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Additions.swift"; path = "Extensions/String+Additions.swift"; sourceTree = "<group>"; };
 		9F626E211E6F58950031D7C2 /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localization.swift; path = Configurations/Localization.swift; sourceTree = "<group>"; };
 		9F626E231E6F58D50031D7C2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Configurations/Constants.swift; sourceTree = "<group>"; };
+		9F7225911E7C632A008752DC /* ColorPicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ColorPicker.storyboard; path = Storyboards/ColorPicker.storyboard; sourceTree = "<group>"; };
+		9F7225931E7C636E008752DC /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorPickerViewController.swift; path = Controllers/ColorPickerViewController.swift; sourceTree = "<group>"; };
+		9F7225951E7C641A008752DC /* ColorPickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorPickerCell.swift; path = Cells/ColorPickerCell.swift; sourceTree = "<group>"; };
 		9FBB753E1E74654A00E5601E /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Session.swift; path = Models/Session.swift; sourceTree = "<group>"; };
 		9FBB75401E7465A500E5601E /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = Models/Event.swift; sourceTree = "<group>"; };
 		9FBB75431E74667C00E5601E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Controllers/MainViewController.swift; sourceTree = "<group>"; };
@@ -194,7 +200,7 @@
 		9F626D951E6F49000031D7C2 /* counter */ = {
 			isa = PBXGroup;
 			children = (
-				9F626D9A1E6F49000031D7C2 /* Main.storyboard */,
+				9F7225901E7C630F008752DC /* Storyboards */,
 				9F626D961E6F49000031D7C2 /* AppDelegate.swift */,
 				9FBB75421E74662900E5601E /* Controllers */,
 				9FBB754B1E74995300E5601E /* Views */,
@@ -250,6 +256,15 @@
 			name = Configurations;
 			sourceTree = "<group>";
 		};
+		9F7225901E7C630F008752DC /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				9F626D9A1E6F49000031D7C2 /* Main.storyboard */,
+				9F7225911E7C632A008752DC /* ColorPicker.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
 		9FBB753D1E74653400E5601E /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +281,7 @@
 				9FBB75431E74667C00E5601E /* MainViewController.swift */,
 				9FDD34E01E7586FE00CC0471 /* CreateSessionViewController.swift */,
 				9FDD34ED1E75B38600CC0471 /* CreateEventViewController.swift */,
+				9F7225931E7C636E008752DC /* ColorPickerViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -287,6 +303,7 @@
 				9FDD34F11E75D02600CC0471 /* SelectColorCell.swift */,
 				9F0774521E7B190700B13235 /* EventCell.swift */,
 				9F0774591E7B382500B13235 /* EventCell.xib */,
+				9F7225951E7C641A008752DC /* ColorPickerCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -449,6 +466,7 @@
 				9FDD34E51E75AD0700CC0471 /* Localizable.strings in Resources */,
 				9F626D9E1E6F49000031D7C2 /* Assets.xcassets in Resources */,
 				9F07745A1E7B382500B13235 /* EventCell.xib in Resources */,
+				9F7225921E7C632A008752DC /* ColorPicker.storyboard in Resources */,
 				9F626D9C1E6F49000031D7C2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -612,6 +630,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F7225941E7C636E008752DC /* ColorPickerViewController.swift in Sources */,
 				9FBB75471E74678400E5601E /* EventService.swift in Sources */,
 				9FDD34F21E75D02600CC0471 /* SelectColorCell.swift in Sources */,
 				9FDD34EC1E75AE8700CC0471 /* Notifications.swift in Sources */,
@@ -622,6 +641,7 @@
 				9FBB75411E7465A500E5601E /* Event.swift in Sources */,
 				9FDD34F41E75D06600CC0471 /* CircleView.swift in Sources */,
 				9F626E1F1E6F57A70031D7C2 /* String+Additions.swift in Sources */,
+				9F7225961E7C641A008752DC /* ColorPickerCell.swift in Sources */,
 				9FDD34EE1E75B38600CC0471 /* CreateEventViewController.swift in Sources */,
 				9F626E1D1E6F57700031D7C2 /* UIView+Additions.swift in Sources */,
 				9F626E021E6F53160031D7C2 /* Theme.swift in Sources */,
