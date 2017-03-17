@@ -8,17 +8,54 @@
 
 import UIKit
 
+protocol ColorPickerControllerDelegate: class {
+    func colorPicker(controller: ColorPickerViewController, didSelect color: UIColor)
+}
+
 final class ColorPickerViewController: UICollectionViewController {
+    
+    weak var delegate: ColorPickerControllerDelegate?
+    
+    let colors: [UIColor] = [
+        UIColor.flatRed,
+        UIColor.flatOrange,
+        UIColor.flatYellow,
+        UIColor.flatSand,
+        UIColor.flatNavyBlue,
+        UIColor.flatBlack,
+        UIColor.flatMagenta,
+        UIColor.flatTeal,
+        UIColor.flatSkyBlue,
+        UIColor.flatGreen,
+        UIColor.flatMint,
+        UIColor.flatWhite,
+        UIColor.flatGray,
+        UIColor.flatForestGreen,
+        UIColor.flatPurple,
+        UIColor.flatBrown,
+        UIColor.flatPlum,
+        UIColor.flatWatermelon,
+        UIColor.flatLime,
+        UIColor.flatPink,
+        UIColor.flatMaroon,
+        UIColor.flatCoffee,
+        UIColor.flatPowderBlue,
+        UIColor.flatBlue
+        ]
 
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Assign Color".localized
+        
         collectionView!.backgroundColor = UIColor.background
         
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
+        
+        collectionView!.delaysContentTouches = false
     }
     
     override func viewDidLayoutSubviews() {
@@ -28,12 +65,13 @@ final class ColorPickerViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 24
+        return colors.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: ColorPickerCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.color = UIColor.randomFlat
+        cell.delegate = self
+        cell.color = colors[indexPath.item]
         return cell
     }
     
@@ -44,39 +82,13 @@ final class ColorPickerViewController: UICollectionViewController {
     }
     
     func recalculateItem(at size: CGSize) {
-        let l = size.width/4
+        let l = (size.width - flowLayout.sectionInset.left - flowLayout.sectionInset.right) / 4
         flowLayout.itemSize = CGSize(width: l, height: l)
     }
+}
 
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
+extension ColorPickerViewController: ColorPickerCellDelegate {
+    func colorPicker(cell: ColorPickerCell, didTap color: UIColor) {
+        delegate?.colorPicker(controller: self, didSelect: color)
     }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
 }

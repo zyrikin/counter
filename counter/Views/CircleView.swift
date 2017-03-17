@@ -34,12 +34,6 @@ final class CircleView: NeverClearView {
         }
     }
     
-    @IBInspectable var strokeColorWidth: CGFloat = 0.0 {
-        didSet {
-            layer.borderWidth = strokeColorWidth
-        }
-    }
-    
     @IBInspectable var strokeWidth: CGFloat = 0.0 {
         didSet {
             layer.borderWidth = strokeWidth

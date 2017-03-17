@@ -44,15 +44,18 @@ private extension Theme {
     class func stylizeNavigationBarForColorScheme(_ colorScheme: ColorScheme) {
         
         let tintColor: UIColor
+        let barTintColor: UIColor
         let textColor: UIColor
         
         switch colorScheme {
         case .darkTheme:
-            tintColor = UIColor.darkBackground
+            tintColor = UIColor.callToAction
+            barTintColor = UIColor.darkBackground
             textColor = UIColor.white
         case .lightTheme:
             tintColor = UIColor.callToAction
-            textColor = UIColor.white
+            barTintColor = UIColor.white
+            textColor = UIColor.darkText
         }
         
         UINavigationBar.appearance().tintColor = tintColor
@@ -65,7 +68,7 @@ private extension Theme {
         // Hide hairline
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().shadowImage = UIImage.imageWithColor(UIColor.hairline)
-        UINavigationBar.appearance().setBackgroundImage(UIImage.imageWithColor(tintColor), for: .default)
+        UINavigationBar.appearance().setBackgroundImage(UIImage.imageWithColor(barTintColor), for: .default)
     }
     
     class func stylizeTabBarForColorScheme(_ colorScheme: ColorScheme) {

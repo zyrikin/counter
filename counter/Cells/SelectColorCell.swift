@@ -22,7 +22,11 @@ final class SelectColorCell: BaseTableViewCell {
         }
     }
     
-    private lazy var colorView: CircleView = CircleView()
+    private lazy var colorView: CircleView = {
+        $0.strokeWidth = 1
+        $0.strokeColor = UIColor.white
+        return $0
+    }(CircleView())
 
     override func setupUI() {
         super.setupUI()

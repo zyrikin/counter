@@ -29,6 +29,8 @@
 		9F7225921E7C632A008752DC /* ColorPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F7225911E7C632A008752DC /* ColorPicker.storyboard */; };
 		9F7225941E7C636E008752DC /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7225931E7C636E008752DC /* ColorPickerViewController.swift */; };
 		9F7225961E7C641A008752DC /* ColorPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7225951E7C641A008752DC /* ColorPickerCell.swift */; };
+		9F72259C1E7C8D66008752DC /* PaddedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F72259B1E7C8D66008752DC /* PaddedButton.swift */; };
+		9F72259F1E7C8DAD008752DC /* UIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F72259E1E7C8DAD008752DC /* UIFactory.swift */; };
 		9FBB753F1E74654A00E5601E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB753E1E74654A00E5601E /* Session.swift */; };
 		9FBB75411E7465A500E5601E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB75401E7465A500E5601E /* Event.swift */; };
 		9FBB75441E74667C00E5601E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB75431E74667C00E5601E /* MainViewController.swift */; };
@@ -112,6 +114,8 @@
 		9F7225911E7C632A008752DC /* ColorPicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ColorPicker.storyboard; path = Storyboards/ColorPicker.storyboard; sourceTree = "<group>"; };
 		9F7225931E7C636E008752DC /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorPickerViewController.swift; path = Controllers/ColorPickerViewController.swift; sourceTree = "<group>"; };
 		9F7225951E7C641A008752DC /* ColorPickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorPickerCell.swift; path = Cells/ColorPickerCell.swift; sourceTree = "<group>"; };
+		9F72259B1E7C8D66008752DC /* PaddedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaddedButton.swift; path = Views/PaddedButton.swift; sourceTree = "<group>"; };
+		9F72259E1E7C8DAD008752DC /* UIFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIFactory.swift; path = Helpers/UIFactory.swift; sourceTree = "<group>"; };
 		9FBB753E1E74654A00E5601E /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Session.swift; path = Models/Session.swift; sourceTree = "<group>"; };
 		9FBB75401E7465A500E5601E /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = Models/Event.swift; sourceTree = "<group>"; };
 		9FBB75431E74667C00E5601E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Controllers/MainViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 		9F626D951E6F49000031D7C2 /* counter */ = {
 			isa = PBXGroup;
 			children = (
+				9F72259D1E7C8DA5008752DC /* Helpers */,
 				9F7225901E7C630F008752DC /* Storyboards */,
 				9F626D961E6F49000031D7C2 /* AppDelegate.swift */,
 				9FBB75421E74662900E5601E /* Controllers */,
@@ -265,6 +270,14 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
+		9F72259D1E7C8DA5008752DC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9F72259E1E7C8DAD008752DC /* UIFactory.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		9FBB753D1E74653400E5601E /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +324,7 @@
 		9FBB754B1E74995300E5601E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9F72259B1E7C8D66008752DC /* PaddedButton.swift */,
 				9FBB75501E749AC600E5601E /* SectionHeaderView.swift */,
 				9FDD34F31E75D06600CC0471 /* CircleView.swift */,
 				9F0774541E7B19C700B13235 /* ColorIndicatorView.swift */,
@@ -633,6 +647,7 @@
 				9F7225941E7C636E008752DC /* ColorPickerViewController.swift in Sources */,
 				9FBB75471E74678400E5601E /* EventService.swift in Sources */,
 				9FDD34F21E75D02600CC0471 /* SelectColorCell.swift in Sources */,
+				9F72259F1E7C8DAD008752DC /* UIFactory.swift in Sources */,
 				9FDD34EC1E75AE8700CC0471 /* Notifications.swift in Sources */,
 				9FBB75441E74667C00E5601E /* MainViewController.swift in Sources */,
 				9F0774531E7B190700B13235 /* EventCell.swift in Sources */,
@@ -645,6 +660,7 @@
 				9FDD34EE1E75B38600CC0471 /* CreateEventViewController.swift in Sources */,
 				9F626E1D1E6F57700031D7C2 /* UIView+Additions.swift in Sources */,
 				9F626E021E6F53160031D7C2 /* Theme.swift in Sources */,
+				9F72259C1E7C8D66008752DC /* PaddedButton.swift in Sources */,
 				9FDD34E11E7586FE00CC0471 /* CreateSessionViewController.swift in Sources */,
 				9FBB75511E749AC600E5601E /* SectionHeaderView.swift in Sources */,
 				9F626E1B1E6F56E10031D7C2 /* UIFont+Additions.swift in Sources */,

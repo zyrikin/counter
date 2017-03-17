@@ -47,7 +47,7 @@
                                         <rect key="frame" x="0.0" y="28" width="1024" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vju-FE-4wj" id="ufa-Oh-PcZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Button" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyM-4f-UfV">
@@ -217,5 +217,4 @@
             <point key="canvasLocation" x="1494" y="1133"/>
         </scene>
     </scenes>
-    <color key="tintColor" red="0.3294117647" green="0.78039215689999997" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

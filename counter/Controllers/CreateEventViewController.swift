@@ -128,12 +128,15 @@ extension CreateEventViewController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let row = getRow(indexPath), let dict = row.data as? [String: Any] else { return }
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        guard let row = getRow(indexPath) else { return }
         
         switch row.name {
             
         case Row.ColorCell.rawValue:
-            if let colorPickerVC = UIStoryboard(name: "ColorPicker", bundle: nil).instantiateInitialViewController() {
+            if let colorPickerVC = UIStoryboard(name: "ColorPicker", bundle: nil).instantiateInitialViewController() as? ColorPickerViewController {
+                colorPickerVC.delegate = self;
                 navigationController?.pushViewController(colorPickerVC, animated: true)
             }
             
@@ -162,4 +165,16 @@ extension CreateEventViewController: InputCellDelegate {
     }
     
     func textField(_ cell: InputCell, didChange text: String, identifier: String?) {}
+}
+
+// MARK:- ColorPickerControllerDelegate methods
+extension CreateEventViewController: ColorPickerControllerDelegate {
+    func colorPicker(controller: ColorPickerViewController, didSelect color: UIColor) {
+        event?.color = color
+        
+        _ = navigationController?.popViewController(animated: true)
+        
+        prepareTableViewSections()
+        tableView.reloadData()
+    }
 }
