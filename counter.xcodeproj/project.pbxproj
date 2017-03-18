@@ -31,6 +31,9 @@
 		9F7225961E7C641A008752DC /* ColorPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7225951E7C641A008752DC /* ColorPickerCell.swift */; };
 		9F72259C1E7C8D66008752DC /* PaddedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F72259B1E7C8D66008752DC /* PaddedButton.swift */; };
 		9F72259F1E7C8DAD008752DC /* UIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F72259E1E7C8DAD008752DC /* UIFactory.swift */; };
+		9F7225A11E7D3832008752DC /* EventPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7225A01E7D3832008752DC /* EventPickerCell.swift */; };
+		9F7225A31E7D3843008752DC /* EventPickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F7225A21E7D3843008752DC /* EventPickerCell.xib */; };
+		9F7225A51E7D75AE008752DC /* SectionSelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7225A41E7D75AE008752DC /* SectionSelectionHeaderView.swift */; };
 		9FBB753F1E74654A00E5601E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB753E1E74654A00E5601E /* Session.swift */; };
 		9FBB75411E7465A500E5601E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB75401E7465A500E5601E /* Event.swift */; };
 		9FBB75441E74667C00E5601E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB75431E74667C00E5601E /* MainViewController.swift */; };
@@ -116,6 +119,9 @@
 		9F7225951E7C641A008752DC /* ColorPickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorPickerCell.swift; path = Cells/ColorPickerCell.swift; sourceTree = "<group>"; };
 		9F72259B1E7C8D66008752DC /* PaddedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaddedButton.swift; path = Views/PaddedButton.swift; sourceTree = "<group>"; };
 		9F72259E1E7C8DAD008752DC /* UIFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIFactory.swift; path = Helpers/UIFactory.swift; sourceTree = "<group>"; };
+		9F7225A01E7D3832008752DC /* EventPickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventPickerCell.swift; path = Cells/EventPickerCell.swift; sourceTree = "<group>"; };
+		9F7225A21E7D3843008752DC /* EventPickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventPickerCell.xib; path = Cells/EventPickerCell.xib; sourceTree = "<group>"; };
+		9F7225A41E7D75AE008752DC /* SectionSelectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionSelectionHeaderView.swift; path = Views/SectionSelectionHeaderView.swift; sourceTree = "<group>"; };
 		9FBB753E1E74654A00E5601E /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Session.swift; path = Models/Session.swift; sourceTree = "<group>"; };
 		9FBB75401E7465A500E5601E /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = Models/Event.swift; sourceTree = "<group>"; };
 		9FBB75431E74667C00E5601E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Controllers/MainViewController.swift; sourceTree = "<group>"; };
@@ -317,6 +323,8 @@
 				9F0774521E7B190700B13235 /* EventCell.swift */,
 				9F0774591E7B382500B13235 /* EventCell.xib */,
 				9F7225951E7C641A008752DC /* ColorPickerCell.swift */,
+				9F7225A01E7D3832008752DC /* EventPickerCell.swift */,
+				9F7225A21E7D3843008752DC /* EventPickerCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -328,6 +336,7 @@
 				9FBB75501E749AC600E5601E /* SectionHeaderView.swift */,
 				9FDD34F31E75D06600CC0471 /* CircleView.swift */,
 				9F0774541E7B19C700B13235 /* ColorIndicatorView.swift */,
+				9F7225A41E7D75AE008752DC /* SectionSelectionHeaderView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -479,6 +488,7 @@
 				9F626DA11E6F49000031D7C2 /* LaunchScreen.storyboard in Resources */,
 				9FDD34E51E75AD0700CC0471 /* Localizable.strings in Resources */,
 				9F626D9E1E6F49000031D7C2 /* Assets.xcassets in Resources */,
+				9F7225A31E7D3843008752DC /* EventPickerCell.xib in Resources */,
 				9F07745A1E7B382500B13235 /* EventCell.xib in Resources */,
 				9F7225921E7C632A008752DC /* ColorPicker.storyboard in Resources */,
 				9F626D9C1E6F49000031D7C2 /* Main.storyboard in Resources */,
@@ -646,10 +656,12 @@
 			files = (
 				9F7225941E7C636E008752DC /* ColorPickerViewController.swift in Sources */,
 				9FBB75471E74678400E5601E /* EventService.swift in Sources */,
+				9F7225A51E7D75AE008752DC /* SectionSelectionHeaderView.swift in Sources */,
 				9FDD34F21E75D02600CC0471 /* SelectColorCell.swift in Sources */,
 				9F72259F1E7C8DAD008752DC /* UIFactory.swift in Sources */,
 				9FDD34EC1E75AE8700CC0471 /* Notifications.swift in Sources */,
 				9FBB75441E74667C00E5601E /* MainViewController.swift in Sources */,
+				9F7225A11E7D3832008752DC /* EventPickerCell.swift in Sources */,
 				9F0774531E7B190700B13235 /* EventCell.swift in Sources */,
 				9FBB753F1E74654A00E5601E /* Session.swift in Sources */,
 				9FDD34DF1E757C7500CC0471 /* ButtonTableViewCell.swift in Sources */,

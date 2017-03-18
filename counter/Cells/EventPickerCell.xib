@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="EventPickerCell" rowHeight="80" id="5ia-UJ-qbP" customClass="EventPickerCell" customModule="counter" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5ia-UJ-qbP" id="aUE-zt-don">
+                <rect key="frame" x="0.0" y="0.0" width="1024" height="79"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOT-yN-neu">
+                        <rect key="frame" x="20" y="28" width="22" height="22"/>
+                        <state key="normal" image="icn_selection"/>
+                        <state key="selected" image="icn_selection_selected"/>
+                    </button>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="NAG-E3-xnO">
+                        <rect key="frame" x="80" y="15" width="135" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wd7-2j-iTz">
+                                <rect key="frame" x="0.0" y="0.0" width="135" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyd-Sd-ZAi">
+                                <rect key="frame" x="0.0" y="27" width="135" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eI3-CA-s69" customClass="ColorIndicatorView" customModule="counter" customModuleProvider="target">
+                        <rect key="frame" x="64" y="15" width="6" height="50"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="6" id="VDv-Gq-Ubf"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                <color key="value" red="1" green="0.70588235290000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="rOT-yN-neu" firstAttribute="leading" secondItem="aUE-zt-don" secondAttribute="leading" constant="20" id="8Xs-uF-Ccg"/>
+                    <constraint firstItem="NAG-E3-xnO" firstAttribute="leading" secondItem="eI3-CA-s69" secondAttribute="trailing" constant="10" id="HPK-pC-iPR"/>
+                    <constraint firstAttribute="bottom" secondItem="NAG-E3-xnO" secondAttribute="bottom" constant="15" id="M6x-LD-rnc"/>
+                    <constraint firstItem="rOT-yN-neu" firstAttribute="centerY" secondItem="aUE-zt-don" secondAttribute="centerYWithinMargins" id="NVd-pW-upz"/>
+                    <constraint firstItem="eI3-CA-s69" firstAttribute="leading" secondItem="rOT-yN-neu" secondAttribute="trailing" constant="22" id="h9Z-N7-CUz"/>
+                    <constraint firstItem="NAG-E3-xnO" firstAttribute="top" secondItem="aUE-zt-don" secondAttribute="top" constant="15" id="nXK-sf-evr"/>
+                    <constraint firstItem="eI3-CA-s69" firstAttribute="top" secondItem="aUE-zt-don" secondAttribute="top" constant="15" id="rpD-I3-4Xf"/>
+                    <constraint firstAttribute="bottom" secondItem="eI3-CA-s69" secondAttribute="bottom" constant="15" id="taA-1d-AZo"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="colorIndicatorView" destination="eI3-CA-s69" id="OsG-uJ-CVr"/>
+                <outlet property="descriptionLabel" destination="iyd-Sd-ZAi" id="smf-eI-Ila"/>
+                <outlet property="selectionButton" destination="rOT-yN-neu" id="G4Z-R5-Xfd"/>
+                <outlet property="titleLabel" destination="Wd7-2j-iTz" id="fli-9z-NxA"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icn_selection" width="22" height="22"/>
+        <image name="icn_selection_selected" width="22" height="22"/>
+    </resources>
+</document>

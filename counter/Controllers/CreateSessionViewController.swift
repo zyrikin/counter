@@ -22,7 +22,7 @@ private enum Section: String {
 }
 
 private enum Row: String {
-    case NameCell, EventCell
+    case NameCell, EventPickerCell
 }
 
 final class CreateSessionViewController: NZBaseTableViewController {
@@ -31,6 +31,7 @@ final class CreateSessionViewController: NZBaseTableViewController {
     fileprivate var mode: Mode = .results
     
     var session: Session?
+    lazy var events: [Event] = EventService.shared.events
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,9 +50,10 @@ final class CreateSessionViewController: NZBaseTableViewController {
     override func setUp() {
         super.setUp()
         tableView.commonSetUp()
+        tableView.allowsMultipleSelection = true
         
         tableView.register(InputCell.self)
-        tableView.register(UINib.init(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: EventCell.defaultReuseIdentifier)
+        tableView.register(UINib.init(nibName: "EventPickerCell", bundle: nil), forCellReuseIdentifier: EventPickerCell.defaultReuseIdentifier)
     }
     
     override func prepareTableViewSections() {
@@ -71,11 +73,12 @@ final class CreateSessionViewController: NZBaseTableViewController {
         
         addSection(Section.events.rawValue) { section in
             let headerTitle = "Events".localized.uppercased()
-            section.headerView = SectionHeaderView(title: headerTitle, horizontalInset: 20)
+            let headerView = SectionSelectionHeaderView(title: headerTitle)
+            headerView.delegate = self
+            section.headerView = headerView
             
-            let events = EventService.shared.events
             for event in events {
-                section.addRow(Row.EventCell.rawValue, height: 65, configure: { row in
+                section.addRow(Row.EventPickerCell.rawValue, height: 65, configure: { row in
                     row.data = [
                         "value": event
                     ]
@@ -93,7 +96,7 @@ final class CreateSessionViewController: NZBaseTableViewController {
     }
 }
 
-// MARK:- UITableViewDataSource methods
+// MARK:- UITableViewDataSource / Delegate methods
 extension CreateSessionViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let row = getRow(indexPath), let dict = row.data as? [String: Any] else { return defaultCell(indexPath) }
@@ -109,10 +112,11 @@ extension CreateSessionViewController {
             cell.delegate = self
             return cell
             
-        case Row.EventCell.rawValue:
+        case Row.EventPickerCell.rawValue:
             
-            let cell: EventCell = tableView.dequeueReusableCell(for: indexPath)
+            let cell: EventPickerCell = tableView.dequeueReusableCell(for: indexPath)
             cell.event = dict["value"] as? Event
+            cell.isEditing = self.tableView(self.tableView, canMoveRowAt: indexPath)
             return cell
             
         default:
@@ -120,6 +124,52 @@ extension CreateSessionViewController {
         }
         
         return defaultCell(indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.none
+    }
+    
+    func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+        if sourceIndexPath.section != proposedDestinationIndexPath.section {
+            var row = 0
+            if sourceIndexPath.section < proposedDestinationIndexPath.section {
+                row = self.tableView(tableView, numberOfRowsInSection: sourceIndexPath.section) - 1
+            }
+            return IndexPath(row: row, section: sourceIndexPath.section)
+        }
+        return proposedDestinationIndexPath
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.section == 1
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
+    {
+        let fromIndex = sourceIndexPath.row
+        let toIndex = destinationIndexPath.row
+        
+        let event = events[fromIndex]
+        events.remove(at: fromIndex)
+        events.insert(event, at: toIndex)
+        
+        prepareTableViewSections()
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        for view in cell.subviews {
+            if String(describing: type(of: view)) == "UITableViewCellReorderControl" {
+                view.backgroundColor = UIColor.darkBackground
+            }
+        }
     }
 }
 
@@ -141,4 +191,23 @@ extension CreateSessionViewController: InputCellDelegate {
     }
     
     func textField(_ cell: InputCell, didChange text: String, identifier: String?) {}
+}
+
+// MARK:- SectionSelectionHeaderViewDelegate methods
+extension CreateSessionViewController: SectionSelectionHeaderViewDelegate {
+    func sectionSelectionDidTapSelectAll(headerView: SectionSelectionHeaderView) {
+        let eventSection = 1
+        let totalRows = tableView.numberOfRows(inSection: eventSection)
+        for row in 0..<totalRows {
+            tableView.selectRow(at: IndexPath(row: row, section: eventSection), animated: true, scrollPosition: .none)
+        }
+    }
+    
+    func sectionSelectionDidTapSelectNone(headerView: SectionSelectionHeaderView) {
+        let eventSection = 1
+        let totalRows = tableView.numberOfRows(inSection: eventSection)
+        for row in 0..<totalRows {
+            tableView.deselectRow(at: IndexPath(row: row, section: eventSection), animated: true)
+        }
+    }
 }
