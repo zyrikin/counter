@@ -11,6 +11,9 @@ pod 'NVActivityIndicatorView'
 pod 'JVFloatLabeledTextField'
 pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 
+# Persistence
+pod 'RealmSwift'
+
 # AutoLayout
 pod 'SnapKit'
 
