@@ -68,7 +68,18 @@ final class SessionService {
             }
         }
         catch let error {
-            print("Event Update Error: \(error)")
+            print("Session Update Error: \(error)")
+        }
+    }
+    
+    func incrementDuration(session: Session) {
+        do {
+            try realm.write {
+                session.duration += 1
+            }
+        }
+        catch let error {
+            print("Session Duration Increment Error: \(error)")
         }
     }
     

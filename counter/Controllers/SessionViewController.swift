@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Realm
+import RealmSwift
 
 private enum Mode {
     case notStarted, paused, ongoing, ended
@@ -22,8 +22,14 @@ final class SessionViewController: UIViewController {
     @IBOutlet weak var historyView: UIView!
     
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var historyLabel: UILabel!
+    
+    @IBOutlet weak var undoButton: UIButton!
     
     var session: Session!
+    
+    fileprivate var timer: Timer?
+    fileprivate var token: NotificationToken?
     
     fileprivate var mode: Mode = .notStarted {
         didSet {
@@ -53,37 +59,13 @@ final class SessionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupUI()
+        registerNotifications()
+        
         title = session?.name
-        
-        collectionView.backgroundColor = UIColor.background
-        collectionView.delaysContentTouches = false
-        
-        flowLayout.minimumLineSpacing = 20
-        flowLayout.minimumInteritemSpacing = 20
-        
         mode = .notStarted
         
-        [timerView, historyView].forEach { (view) in
-            view?.backgroundColor = UIColor.darkBackground
-        }
-        
-        timerLabel.font = UIFont.defaultLightFont(24)
-        timerLabel.textColor = UIColor.label1
-        timerLabel.text = session.duration.timeIntervalAsString("hh:mm:ss")
-        
         collectionView.reloadData()
-    }
-    
-    @objc func startResumeSession() {
-        mode = .ongoing
-    }
-    
-    @objc func pauseSession() {
-        mode = .paused
-    }
-    
-    @objc func endSession() {
-        mode = .ended
     }
     
     override func viewDidLayoutSubviews() {
@@ -100,6 +82,74 @@ final class SessionViewController: UIViewController {
     func recalculateItem(at size: CGSize) {
         let l = (size.width - flowLayout.sectionInset.left - flowLayout.sectionInset.right - (3*flowLayout.minimumInteritemSpacing)) / 4
         flowLayout.itemSize = CGSize(width: l, height: 100)
+    }
+    
+    @objc func startResumeSession() {
+        mode = .ongoing
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] (timer) in
+            if let session = self?.session {
+                SessionService.shared.incrementDuration(session: session)
+            }
+        })
+    }
+    
+    @objc func pauseSession() {
+        mode = .paused
+        timer?.invalidate()
+    }
+    
+    @objc func endSession() {
+        mode = .ended
+        timer?.invalidate()
+    }
+    
+    @IBAction func undoPressed(_ sender: UIButton) {
+    }
+    
+    deinit {
+        token?.stop()
+    }
+}
+
+// MARK:- Private methods
+fileprivate extension SessionViewController {
+    func setupUI() {
+        collectionView.backgroundColor = UIColor.background
+        collectionView.delaysContentTouches = false
+        
+        flowLayout.minimumLineSpacing = 20
+        flowLayout.minimumInteritemSpacing = 20
+        
+        [timerView, historyView].forEach { (view) in
+            view?.backgroundColor = UIColor.darkBackground
+        }
+        
+        timerLabel.font = UIFont.defaultLightFont(24)
+        timerLabel.textColor = UIColor.label1
+        timerLabel.text = session.duration.timeIntervalAsString("hh:mm:ss")
+        historyLabel.font = UIFont.defaultLightFont(10)
+        historyLabel.textColor = UIColor.label1
+        historyLabel.text = "History:".localized
+        
+        undoButton.setTitle("Undo".localized, for: .normal)
+        undoButton.tintColor = UIColor.callToAction
+    }
+    
+    func registerNotifications() {
+        token = session.addNotificationBlock { [weak self] change in
+            switch change {
+            case .change(let properties):
+                for property in properties {
+                    if property.name == "duration" {
+                        self?.timerLabel.text = self?.session.duration.timeIntervalAsString("hh:mm:ss")
+                    }
+                }
+            case .error(let error):
+                print("An error occurred: \(error)")
+            case .deleted:
+                print("The object was deleted.")
+            }
+        }
     }
 }
 

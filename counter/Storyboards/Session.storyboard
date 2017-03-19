@@ -24,7 +24,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fza-a2-Jtk">
                                 <rect key="frame" x="0.0" y="64" width="1024" height="36"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wq5-0b-e5b">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wq5-0b-e5b">
                                         <rect key="frame" x="491" y="7" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -40,8 +40,27 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zsP-7e-T0e">
                                 <rect key="frame" x="0.0" y="732" width="1024" height="36"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8j8-k8-r3X">
+                                        <rect key="frame" x="20" y="7" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rz-wi-8V1">
+                                        <rect key="frame" x="966" y="3" width="38" height="30"/>
+                                        <state key="normal" title="Undo"/>
+                                        <connections>
+                                            <action selector="undoPressed:" destination="dBK-cW-aga" eventType="touchUpInside" id="FOO-jr-0jx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
+                                    <constraint firstItem="8j8-k8-r3X" firstAttribute="centerY" secondItem="zsP-7e-T0e" secondAttribute="centerY" id="5ap-aT-VJR"/>
                                     <constraint firstAttribute="height" constant="36" id="Q9z-s5-9Er"/>
+                                    <constraint firstAttribute="trailing" secondItem="4rz-wi-8V1" secondAttribute="trailing" constant="20" id="au5-I1-fBC"/>
+                                    <constraint firstItem="4rz-wi-8V1" firstAttribute="centerY" secondItem="zsP-7e-T0e" secondAttribute="centerY" id="exG-Z2-UGB"/>
+                                    <constraint firstItem="8j8-k8-r3X" firstAttribute="leading" secondItem="zsP-7e-T0e" secondAttribute="leading" constant="20" id="tUZ-9V-Jh8"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DzV-5h-rbH">
@@ -93,9 +112,11 @@
                     <connections>
                         <outlet property="collectionView" destination="DzV-5h-rbH" id="eQy-ur-rI7"/>
                         <outlet property="flowLayout" destination="IGP-xp-p3l" id="WAW-nc-3TN"/>
+                        <outlet property="historyLabel" destination="8j8-k8-r3X" id="H0v-Im-EJm"/>
                         <outlet property="historyView" destination="zsP-7e-T0e" id="zDg-E3-9RE"/>
                         <outlet property="timerLabel" destination="wq5-0b-e5b" id="vPR-rc-p4F"/>
                         <outlet property="timerView" destination="Fza-a2-Jtk" id="Mt7-T7-bYi"/>
+                        <outlet property="undoButton" destination="4rz-wi-8V1" id="2fA-jp-Q3S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mZv-dr-Y81" userLabel="First Responder" sceneMemberID="firstResponder"/>
