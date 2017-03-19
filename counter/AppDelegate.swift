@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Data store
         Realm.Configuration.defaultConfiguration = Realm.Configuration(
-            schemaVersion: 1,
+            schemaVersion: 0,
             migrationBlock: { migration, oldSchemaVersion in
                 
                 if (oldSchemaVersion < 1) {

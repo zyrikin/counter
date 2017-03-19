@@ -9,6 +9,7 @@
 import UIKit
 import NZKit
 import SnapKit
+import RealmSwift
 
 private enum Section: String {
     case sessions, events
@@ -20,6 +21,9 @@ private enum Row: String {
 }
 
 final class MainViewController: NZBaseTableViewController {
+    
+    let events: List<Event> = EventService.shared.events
+    var token: NotificationToken?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +33,22 @@ final class MainViewController: NZBaseTableViewController {
         tableView.commonSetUp()
         tableView.register(UINib.init(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: EventCell.defaultReuseIdentifier)
         
-        prepareTableViewSections()
+        token = events.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
+            switch changes {
+            
+            case .initial:
+                self?.prepareTableViewSections()
+                self?.tableView.reloadData()
+                
+            case .update(_, _, _, _):
+                self?.prepareTableViewSections()
+                self?.tableView.reloadData()
+                
+            case .error(let error):
+                print("Error: \(error)")
+                break
+            }
+        }
     }
 
     override func prepareTableViewSections() {
@@ -48,7 +67,7 @@ final class MainViewController: NZBaseTableViewController {
             let headerTitle = "Events".localized.uppercased()
             section.headerView = SectionHeaderView(title: headerTitle)
             
-            for event in EventService.shared.events {
+            for event in events {
                 section.addRow(Row.EventCell.rawValue, height: 65, configure: { row in
                     row.data = event
                 })
@@ -72,6 +91,10 @@ final class MainViewController: NZBaseTableViewController {
         default:
             break
         }
+    }
+    
+    deinit {
+        token?.stop()
     }
     
     @IBAction func prepareForUnWind(segue: UIStoryboardSegue) {}
@@ -137,7 +160,7 @@ extension MainViewController: CreateEventControllerDelegate {
         tableView.reloadData()
         
         // Highlight the newly saved event cell
-        if let row = EventService.shared.events.index(of: event) {
+        if let row = events.index(of: event) {
             let indexPath = IndexPath(row: row, section: 1)
             if let cell = tableView.cellForRow(at: indexPath) {
                 cell.animateFocus()

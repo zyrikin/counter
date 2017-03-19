@@ -41,7 +41,6 @@ final class CreateEventViewController: NZBaseTableViewController {
             title = "New Event".localized
             mode = .new
             event = Event()
-            event?.id = UUID().uuidString
         } else {
             title = "Edit Event".localized
         }
@@ -152,17 +151,17 @@ extension CreateEventViewController: InputCellDelegate {
     func textFieldDidBeginEditing(_ cell: InputCell, identifier: String?) {}
     
     func textFieldDidEndEditing(_ cell: InputCell, text: String, identifier: String?) {
-        guard let identifier = identifier else { return }
+        guard let identifier = identifier, let event = event else { return }
         
         switch identifier {
-        case Row.NameCell.rawValue: event?.name = text
-        case Row.DescriptionCell.rawValue: event?.desc = text
+        case Row.NameCell.rawValue: EventService.shared.update(event: event, name: text)
+        case Row.DescriptionCell.rawValue: EventService.shared.update(event: event, desc: text)
         default: break
         }
         
-        // Needed otherwise the entered text disappear
-        prepareTableViewSections()
-        tableView.reloadData()
+//        // Needed otherwise the entered text disappear
+//        prepareTableViewSections()
+//        tableView.reloadData()
     }
     
     func textField(_ cell: InputCell, didChange text: String, identifier: String?) {}
@@ -171,7 +170,9 @@ extension CreateEventViewController: InputCellDelegate {
 // MARK:- ColorPickerControllerDelegate methods
 extension CreateEventViewController: ColorPickerControllerDelegate {
     func colorPicker(controller: ColorPickerViewController, didSelect color: UIColor) {
-        event?.color = color
+        guard let event = event else { return }
+        
+        EventService.shared.update(event: event, color: color)
         
         _ = navigationController?.popViewController(animated: true)
         

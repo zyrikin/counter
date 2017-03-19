@@ -8,6 +8,7 @@
 
 import UIKit
 import NZKit
+import RealmSwift
 
 protocol CreateSessionControllerDelegate: class {
     func createSession(controller: CreateSessionViewController, didStart session: Session)
@@ -31,7 +32,7 @@ final class CreateSessionViewController: NZBaseTableViewController {
     fileprivate var mode: Mode = .results
     
     var session: Session?
-    fileprivate lazy var events: [Event] = EventService.shared.events
+    let events: List<Event> = EventService.shared.events
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -152,20 +153,20 @@ extension CreateSessionViewController {
         return indexPath.section == 1
     }
     
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
-    {
-        let fromIndex = sourceIndexPath.row
-        let toIndex = destinationIndexPath.row
-        
-        let event = events[fromIndex]
-        events.remove(at: fromIndex)
-        events.insert(event, at: toIndex)
-        
-        event.createdAt = Date()
-        EventService.shared.add(event: event)
-        
-        prepareTableViewSections()
-    }
+//    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
+//    {
+//        let fromIndex = sourceIndexPath.row
+//        let toIndex = destinationIndexPath.row
+//        
+//        let event = events[fromIndex]
+//        events.remove(at: fromIndex)
+//        events.insert(event, at: toIndex)
+//        
+//        event.createdAt = Date()
+//        EventService.shared.add(event: event)
+//        
+//        prepareTableViewSections()
+//    }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         for view in cell.subviews {

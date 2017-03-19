@@ -12,7 +12,7 @@ import UIKit
 import ChameleonFramework
 
 class Event: Object {
-    dynamic var id: String = ""
+    dynamic var id: String = UUID().uuidString
     dynamic var name: String = ""
     dynamic var desc: String = ""
     dynamic var colorString: String = "ffffff"

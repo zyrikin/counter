@@ -34,6 +34,7 @@
 		9F7225A11E7D3832008752DC /* EventPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7225A01E7D3832008752DC /* EventPickerCell.swift */; };
 		9F7225A31E7D3843008752DC /* EventPickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F7225A21E7D3843008752DC /* EventPickerCell.xib */; };
 		9F7225A51E7D75AE008752DC /* SectionSelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7225A41E7D75AE008752DC /* SectionSelectionHeaderView.swift */; };
+		9F851AD61E7E7302008F4CF1 /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F851AD51E7E7302008F4CF1 /* EventList.swift */; };
 		9FBB753F1E74654A00E5601E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB753E1E74654A00E5601E /* Session.swift */; };
 		9FBB75411E7465A500E5601E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB75401E7465A500E5601E /* Event.swift */; };
 		9FBB75441E74667C00E5601E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB75431E74667C00E5601E /* MainViewController.swift */; };
@@ -122,6 +123,7 @@
 		9F7225A01E7D3832008752DC /* EventPickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventPickerCell.swift; path = Cells/EventPickerCell.swift; sourceTree = "<group>"; };
 		9F7225A21E7D3843008752DC /* EventPickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventPickerCell.xib; path = Cells/EventPickerCell.xib; sourceTree = "<group>"; };
 		9F7225A41E7D75AE008752DC /* SectionSelectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionSelectionHeaderView.swift; path = Views/SectionSelectionHeaderView.swift; sourceTree = "<group>"; };
+		9F851AD51E7E7302008F4CF1 /* EventList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventList.swift; path = Models/EventList.swift; sourceTree = "<group>"; };
 		9FBB753E1E74654A00E5601E /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Session.swift; path = Models/Session.swift; sourceTree = "<group>"; };
 		9FBB75401E7465A500E5601E /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = Models/Event.swift; sourceTree = "<group>"; };
 		9FBB75431E74667C00E5601E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Controllers/MainViewController.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				9FDD34E91E75ADD300CC0471 /* ProfileSettings.swift */,
 				9FBB753E1E74654A00E5601E /* Session.swift */,
 				9FBB75401E7465A500E5601E /* Event.swift */,
+				9F851AD51E7E7302008F4CF1 /* EventList.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 				9FDD34EC1E75AE8700CC0471 /* Notifications.swift in Sources */,
 				9FBB75441E74667C00E5601E /* MainViewController.swift in Sources */,
 				9F7225A11E7D3832008752DC /* EventPickerCell.swift in Sources */,
+				9F851AD61E7E7302008F4CF1 /* EventList.swift in Sources */,
 				9F0774531E7B190700B13235 /* EventCell.swift in Sources */,
 				9FBB753F1E74654A00E5601E /* Session.swift in Sources */,
 				9FDD34DF1E757C7500CC0471 /* ButtonTableViewCell.swift in Sources */,
