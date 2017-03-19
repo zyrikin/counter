@@ -43,6 +43,7 @@
 		9F851AE41E7F1173008F4CF1 /* Session.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F851AE31E7F1173008F4CF1 /* Session.storyboard */; };
 		9F851AE61E7F11E0008F4CF1 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F851AE51E7F11E0008F4CF1 /* SessionViewController.swift */; };
 		9F851AE81E7F133F008F4CF1 /* SessionEventButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F851AE71E7F133F008F4CF1 /* SessionEventButtonCell.swift */; };
+		9F851AEA1E7F319B008F4CF1 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F851AE91E7F319B008F4CF1 /* Helpers.swift */; };
 		9FBB753F1E74654A00E5601E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB753E1E74654A00E5601E /* Session.swift */; };
 		9FBB75411E7465A500E5601E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB75401E7465A500E5601E /* Event.swift */; };
 		9FBB75441E74667C00E5601E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB75431E74667C00E5601E /* MainViewController.swift */; };
@@ -140,6 +141,7 @@
 		9F851AE31E7F1173008F4CF1 /* Session.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Session.storyboard; path = Storyboards/Session.storyboard; sourceTree = "<group>"; };
 		9F851AE51E7F11E0008F4CF1 /* SessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionViewController.swift; path = Controllers/SessionViewController.swift; sourceTree = "<group>"; };
 		9F851AE71E7F133F008F4CF1 /* SessionEventButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionEventButtonCell.swift; path = Cells/SessionEventButtonCell.swift; sourceTree = "<group>"; };
+		9F851AE91E7F319B008F4CF1 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = Helpers/Helpers.swift; sourceTree = "<group>"; };
 		9FBB753E1E74654A00E5601E /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Session.swift; path = Models/Session.swift; sourceTree = "<group>"; };
 		9FBB75401E7465A500E5601E /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = Models/Event.swift; sourceTree = "<group>"; };
 		9FBB75431E74667C00E5601E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Controllers/MainViewController.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				9F72259E1E7C8DAD008752DC /* UIFactory.swift */,
+				9F851AE91E7F319B008F4CF1 /* Helpers.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -693,6 +696,7 @@
 				9F851AD81E7EABC0008F4CF1 /* SessionService.swift in Sources */,
 				9FBB75441E74667C00E5601E /* MainViewController.swift in Sources */,
 				9F7225A11E7D3832008752DC /* EventPickerCell.swift in Sources */,
+				9F851AEA1E7F319B008F4CF1 /* Helpers.swift in Sources */,
 				9F851AD61E7E7302008F4CF1 /* EventList.swift in Sources */,
 				9F0774531E7B190700B13235 /* EventCell.swift in Sources */,
 				9FBB753F1E74654A00E5601E /* Session.swift in Sources */,

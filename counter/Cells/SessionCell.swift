@@ -58,7 +58,7 @@ final class SessionCell: BaseTableViewCell {
         guard let session = session else { return }
         
         titleLabel.text = session.name
-        createdAtLabel.text = "\(session.createdAt)"
+        createdAtLabel.text = SessionDateFormatter.string(from: session.createdAt)
         
         eventsValue.text = "\(session.events.count)"
         totalValue.text = "\(session.result.count)"
