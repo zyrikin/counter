@@ -25,6 +25,10 @@ extension UIFont {
 //        return (UIFont(name: "OpenSans-Bold", size: size))!
     }
     
+    class func defaultLightFont(_ size: CGFloat) -> UIFont {
+        return UIFont.systemFont(ofSize: size)
+    }
+    
 //    class func defaultLightFont(_ size: CGFloat) -> UIFont {
 //        return (UIFont(name: "OpenSans-Light", size: size))!
 //    }

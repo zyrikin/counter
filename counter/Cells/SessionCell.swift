@@ -14,6 +14,16 @@ final class SessionCell: BaseTableViewCell {
     @IBOutlet weak var createdAtLabel: UILabel!
     @IBOutlet weak var disclosure: UIImageView!
     
+    @IBOutlet weak var eventsTitle: UILabel!
+    @IBOutlet weak var eventsValue: UILabel!
+    
+    @IBOutlet weak var totalTitle: UILabel!
+    @IBOutlet weak var totalValue: UILabel!
+    
+    @IBOutlet weak var durationTitle: UILabel!
+    @IBOutlet weak var durationValue: UILabel!
+    
+    
     var session: Session? {
         didSet {
             updateUI()
@@ -28,6 +38,20 @@ final class SessionCell: BaseTableViewCell {
         createdAtLabel.textColor = UIColor.label2
         createdAtLabel.font = UIFont.defaultFont(10)
         disclosure.tintColor = UIColor.disclosure
+        
+        eventsTitle.text = "Events".localized
+        totalTitle.text = "Total Count".localized
+        durationTitle.text = "Duration".localized
+        
+        [eventsTitle, totalTitle, durationTitle].forEach { (label) in
+            label?.textColor = UIColor.label2
+            label?.font = UIFont.defaultBoldFont(10)
+        }
+        
+        [eventsValue, totalValue, durationValue].forEach { (label) in
+            label?.textColor = UIColor.label1
+            label?.font = UIFont.defaultLightFont(24)
+        }
     }
     
     func updateUI() {
@@ -35,5 +59,9 @@ final class SessionCell: BaseTableViewCell {
         
         titleLabel.text = session.name
         createdAtLabel.text = "\(session.createdAt)"
+        
+        eventsValue.text = "\(session.events.count)"
+        totalValue.text = "\(session.result.count)"
+        durationValue.text = session.duration.timeIntervalAsString("hh:mm:ss")
     }
 }
