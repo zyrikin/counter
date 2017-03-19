@@ -11,7 +11,7 @@ import NZKit
 import RealmSwift
 
 protocol CreateSessionControllerDelegate: class {
-    func createSession(controller: CreateSessionViewController, didStart session: Session)
+    func createSession(controller: CreateSessionViewController, didCreate session: Session)
 }
 
 private enum Mode {
@@ -33,6 +33,7 @@ final class CreateSessionViewController: NZBaseTableViewController {
     
     var session: Session?
     let events: List<Event> = EventService.shared.events
+    var token: NotificationToken?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +41,27 @@ final class CreateSessionViewController: NZBaseTableViewController {
         if session == nil {
             title = "New Session".localized
             mode = .new
-            session = Session(id: UUID().uuidString, date: Date(), name: "", duration: 0, events: [Event]())
+            session = Session()
         } else {
             title = "Results".localized
         }
         
-        prepareTableViewSections()
+        token = events.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
+            switch changes {
+                
+            case .initial:
+                self?.prepareTableViewSections()
+                self?.tableView.reloadData()
+                
+            case .update(_, _, _, _):
+                self?.prepareTableViewSections()
+                self?.tableView.reloadData()
+                
+            case .error(let error):
+                print("Error: \(error)")
+                break
+            }
+        }
     }
 
     override func setUp() {
@@ -87,13 +103,17 @@ final class CreateSessionViewController: NZBaseTableViewController {
             }
         }
     }
+    
+    deinit {
+        token?.stop()
+    }
 
     @IBAction func startPressed(_ sender: UIBarButtonItem) {
         tableView.endEditing(true)
         
         guard let session = session else { return }
         
-        delegate?.createSession(controller: self, didStart: session)
+        delegate?.createSession(controller: self, didCreate: session)
     }
 }
 
@@ -153,20 +173,13 @@ extension CreateSessionViewController {
         return indexPath.section == 1
     }
     
-//    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
-//    {
-//        let fromIndex = sourceIndexPath.row
-//        let toIndex = destinationIndexPath.row
-//        
-//        let event = events[fromIndex]
-//        events.remove(at: fromIndex)
-//        events.insert(event, at: toIndex)
-//        
-//        event.createdAt = Date()
-//        EventService.shared.add(event: event)
-//        
-//        prepareTableViewSections()
-//    }
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
+    {
+        let fromIndex = sourceIndexPath.row
+        let toIndex = destinationIndexPath.row
+        
+        EventService.shared.moveEvent(from: fromIndex, to: toIndex)
+    }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         for view in cell.subviews {
@@ -182,16 +195,12 @@ extension CreateSessionViewController: InputCellDelegate {
     func textFieldDidBeginEditing(_ cell: InputCell, identifier: String?) {}
     
     func textFieldDidEndEditing(_ cell: InputCell, text: String, identifier: String?) {
-        guard let identifier = identifier else { return }
+        guard let identifier = identifier, let session = session else { return }
         
         switch identifier {
-        case Row.NameCell.rawValue: session?.name = text
+        case Row.NameCell.rawValue: SessionService.shared.update(session: session, name: text)
         default: break
         }
-        
-        // Needed otherwise the entered text disappear
-        prepareTableViewSections()
-        tableView.reloadData()
     }
     
     func textField(_ cell: InputCell, didChange text: String, identifier: String?) {}

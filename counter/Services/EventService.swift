@@ -18,10 +18,6 @@ final class EventService {
     
     let realm = try! Realm()
     
-    private lazy var results: Results<Event> = {
-        return self.realm.objects(Event.self).sorted(byKeyPath: "createdAt", ascending: false)
-    }()
-    
     lazy var eventList: EventList = {
         if let list = self.realm.object(ofType: EventList.self, forPrimaryKey: Const.kEventListPrimaryKey) {
             return list
@@ -37,12 +33,6 @@ final class EventService {
         return eventList.list
     }
     
-//    var events: [Event] {
-//        get {
-//            return results.map { $0.eventCopy() }
-//        }
-//    }
-    
     func add(eventList: EventList) {
         do {
             try realm.write {
@@ -56,6 +46,8 @@ final class EventService {
     }
     
     func add(event: Event) {
+        guard events.index(of: event) == nil else { return } // Don't add existing event to the list
+        
         do {
             try realm.write {
                 events.insert(event, at: events.startIndex)
@@ -63,6 +55,21 @@ final class EventService {
         }
         catch let error {
             print("Event Add Error: \(error)")
+        }
+    }
+    
+    func moveEvent(from: Int, to: Int) {
+        guard
+            from >= events.startIndex, from <= events.endIndex,
+            to >= events.startIndex, to <= events.endIndex else { return }
+        
+        do {
+            try realm.write {
+                events.move(from: from, to: to)
+            }
+        }
+        catch let error {
+            print("Event Update Error: \(error)")
         }
     }
     
@@ -78,18 +85,6 @@ final class EventService {
             print("Event Update Error: \(error)")
         }
     }
-    
-//    func add(event: Event) {
-//        do {
-//            try realm.write {
-//                realm.add(event.eventCopy(), update: true)
-//            }
-//        }
-//        catch let error {
-//            print("Error: \(error)")
-//        }
-//        
-//    }
     
     func remove(event: Event) {
         try! realm.write {

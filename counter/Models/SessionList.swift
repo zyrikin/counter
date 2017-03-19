@@ -1,5 +1,5 @@
 //
-//  EventList.swift
+//  SessionList.swift
 //  counter
 //
 //  Created by Nik Zakirin on 19/03/2017.
@@ -9,9 +9,9 @@
 import Foundation
 import RealmSwift
 
-class EventList: Object {
+class SessionList: Object {
     dynamic var id: String = ""
-    let list = List<Event>()
+    let list = List<Session>()
     
     override static func primaryKey() -> String? {
         return "id"

@@ -7,11 +7,20 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Session {
-    let id: String
-    let date: Date
-    var name: String = ""
-    var duration: TimeInterval = 0
-    var events = [Event]()
+class Session: Object {
+    dynamic var id: String = UUID().uuidString
+    dynamic var createdAt: Date = Date()
+    
+    dynamic var name: String = ""
+    dynamic var duration: TimeInterval = 0
+    dynamic var startedAt: Date = Date()
+    dynamic var endedAt: Date = Date()
+    let events = List<Event>() // Populated at creation as the session's events
+    let result = List<Event>() // Populated as counter during a session
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }

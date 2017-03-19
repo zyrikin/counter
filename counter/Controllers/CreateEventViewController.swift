@@ -158,10 +158,6 @@ extension CreateEventViewController: InputCellDelegate {
         case Row.DescriptionCell.rawValue: EventService.shared.update(event: event, desc: text)
         default: break
         }
-        
-//        // Needed otherwise the entered text disappear
-//        prepareTableViewSections()
-//        tableView.reloadData()
     }
     
     func textField(_ cell: InputCell, didChange text: String, identifier: String?) {}
