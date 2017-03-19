@@ -40,6 +40,9 @@
 		9F851ADE1E7EDA6A008F4CF1 /* SessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F851ADD1E7EDA6A008F4CF1 /* SessionCell.swift */; };
 		9F851AE01E7EDA78008F4CF1 /* SessionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F851ADF1E7EDA78008F4CF1 /* SessionCell.xib */; };
 		9F851AE21E7F0F87008F4CF1 /* TimeInternal+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F851AE11E7F0F87008F4CF1 /* TimeInternal+Additions.swift */; };
+		9F851AE41E7F1173008F4CF1 /* Session.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F851AE31E7F1173008F4CF1 /* Session.storyboard */; };
+		9F851AE61E7F11E0008F4CF1 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F851AE51E7F11E0008F4CF1 /* SessionViewController.swift */; };
+		9F851AE81E7F133F008F4CF1 /* SessionEventButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F851AE71E7F133F008F4CF1 /* SessionEventButtonCell.swift */; };
 		9FBB753F1E74654A00E5601E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB753E1E74654A00E5601E /* Session.swift */; };
 		9FBB75411E7465A500E5601E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB75401E7465A500E5601E /* Event.swift */; };
 		9FBB75441E74667C00E5601E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB75431E74667C00E5601E /* MainViewController.swift */; };
@@ -134,6 +137,9 @@
 		9F851ADD1E7EDA6A008F4CF1 /* SessionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionCell.swift; path = Cells/SessionCell.swift; sourceTree = "<group>"; };
 		9F851ADF1E7EDA78008F4CF1 /* SessionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SessionCell.xib; path = Cells/SessionCell.xib; sourceTree = "<group>"; };
 		9F851AE11E7F0F87008F4CF1 /* TimeInternal+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TimeInternal+Additions.swift"; path = "Extensions/TimeInternal+Additions.swift"; sourceTree = "<group>"; };
+		9F851AE31E7F1173008F4CF1 /* Session.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Session.storyboard; path = Storyboards/Session.storyboard; sourceTree = "<group>"; };
+		9F851AE51E7F11E0008F4CF1 /* SessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionViewController.swift; path = Controllers/SessionViewController.swift; sourceTree = "<group>"; };
+		9F851AE71E7F133F008F4CF1 /* SessionEventButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionEventButtonCell.swift; path = Cells/SessionEventButtonCell.swift; sourceTree = "<group>"; };
 		9FBB753E1E74654A00E5601E /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Session.swift; path = Models/Session.swift; sourceTree = "<group>"; };
 		9FBB75401E7465A500E5601E /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = Models/Event.swift; sourceTree = "<group>"; };
 		9FBB75431E74667C00E5601E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Controllers/MainViewController.swift; sourceTree = "<group>"; };
@@ -285,6 +291,7 @@
 			children = (
 				9F626D9A1E6F49000031D7C2 /* Main.storyboard */,
 				9F7225911E7C632A008752DC /* ColorPicker.storyboard */,
+				9F851AE31E7F1173008F4CF1 /* Session.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -316,6 +323,7 @@
 				9FDD34E01E7586FE00CC0471 /* CreateSessionViewController.swift */,
 				9FDD34ED1E75B38600CC0471 /* CreateEventViewController.swift */,
 				9F7225931E7C636E008752DC /* ColorPickerViewController.swift */,
+				9F851AE51E7F11E0008F4CF1 /* SessionViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -343,6 +351,7 @@
 				9F7225A21E7D3843008752DC /* EventPickerCell.xib */,
 				9F851ADD1E7EDA6A008F4CF1 /* SessionCell.swift */,
 				9F851ADF1E7EDA78008F4CF1 /* SessionCell.xib */,
+				9F851AE71E7F133F008F4CF1 /* SessionEventButtonCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -511,6 +520,7 @@
 				9F07745A1E7B382500B13235 /* EventCell.xib in Resources */,
 				9F7225921E7C632A008752DC /* ColorPicker.storyboard in Resources */,
 				9F626D9C1E6F49000031D7C2 /* Main.storyboard in Resources */,
+				9F851AE41E7F1173008F4CF1 /* Session.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,7 +710,9 @@
 				9F626E1B1E6F56E10031D7C2 /* UIFont+Additions.swift in Sources */,
 				9FDD34F01E75C5F300CC0471 /* InputCell.swift in Sources */,
 				9F626E161E6F55500031D7C2 /* UIColor+Additions.swift in Sources */,
+				9F851AE81E7F133F008F4CF1 /* SessionEventButtonCell.swift in Sources */,
 				9F851ADE1E7EDA6A008F4CF1 /* SessionCell.swift in Sources */,
+				9F851AE61E7F11E0008F4CF1 /* SessionViewController.swift in Sources */,
 				9F0774551E7B19C700B13235 /* ColorIndicatorView.swift in Sources */,
 				9F851AE21E7F0F87008F4CF1 /* TimeInternal+Additions.swift in Sources */,
 				9FBB754D1E74997800E5601E /* UITableView+Additions.swift in Sources */,

@@ -135,6 +135,17 @@ final class MainViewController: NZBaseTableViewController {
     @IBAction func prepareForUnWind(segue: UIStoryboardSegue) {}
 }
 
+fileprivate extension MainViewController {
+    func showSessionVC(session: Session) {
+        if let nvc = UIStoryboard(name: "Session", bundle: nil).instantiateInitialViewController() as? UINavigationController,
+            let sessionVC = nvc.topViewController as? SessionViewController {
+            sessionVC.session = session
+            
+            present(nvc, animated: true, completion: nil)
+        }
+    }
+}
+
 // MARK:- UITableViewDataSource methods
 extension MainViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -180,7 +191,8 @@ extension MainViewController {
         case Row.AddSessionCell.rawValue:
             performSegue(withIdentifier: "ShowCreateSession", sender: self)
         case Row.SessionCell.rawValue:
-            performSegue(withIdentifier: "ShowCreateSession", sender: row.data)
+//            performSegue(withIdentifier: "ShowCreateSession", sender: row.data)
+            showSessionVC(session: row.data as! Session)
         case Row.AddEventCell.rawValue:
             performSegue(withIdentifier: "ShowAddEvent", sender: self)
         case Row.EventCell.rawValue:
@@ -211,6 +223,8 @@ extension MainViewController: CreateEventControllerDelegate {
 // MARK:- CreateSessionControllerDelegate methods
 extension MainViewController: CreateSessionControllerDelegate {
     func createSession(controller: CreateSessionViewController, didCreate session: Session) {
-        navigationController?.dismiss(animated: true, completion: nil)
+        navigationController?.dismiss(animated: true) { [weak self] _ in
+            self?.showSessionVC(session: session)
+        }
     }
 }

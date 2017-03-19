@@ -24,3 +24,7 @@
 "Close" = "Close";
 "Total Count" = "Total Count";
 "Duration" = "Duration";
+"Start Session" = "Start Session";
+"Resume Session" = "Resume Session";
+"Pause" = "Pause";
+"End Session" = "End Session";
