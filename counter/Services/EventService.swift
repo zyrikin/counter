@@ -7,17 +7,32 @@
 //
 
 import Foundation
+import RealmSwift
 
 final class EventService {
     static let shared = EventService()
     
-    private(set) var events = [Event]()
+    private let realm = try! Realm()
+    
+    private lazy var results: Results<Event> = {
+        return self.realm.objects(Event.self).sorted(byKeyPath: "createdAt", ascending: false)
+    }()
+    
+    var events: [Event] {
+        get {
+            return results.map { $0.eventCopy() }
+        }
+    }
     
     func add(event: Event) {
-        if let idx = events.index(of: event) {
-            events[idx] = event
-        } else {
-            events.insert(event, at: events.startIndex)
+        try! realm.write {
+            realm.add(event.eventCopy(), update: true)
+        }
+    }
+    
+    func remove(event: Event) {
+        try! realm.write {
+            realm.delete(event)
         }
     }
 }

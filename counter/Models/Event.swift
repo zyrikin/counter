@@ -7,16 +7,51 @@
 //
 
 import Foundation
+import RealmSwift
 import UIKit
+import ChameleonFramework
 
-struct Event: Hashable {
-    let id: String
-    var name: String = ""
-    var description: String = ""
-    var color: UIColor = UIColor.white
+class Event: Object {
+    dynamic var id: String = ""
+    dynamic var name: String = ""
+    dynamic var desc: String = ""
+    dynamic var colorString: String = "ffffff"
+    dynamic var createdAt = Date()
     
-    var hashValue: Int {
+    var color: UIColor {
+        get {
+            if let color = HexColor(colorString) {
+                return color
+            } else {
+                return UIColor.white
+            }
+        }
+        set(newColor) {
+            colorString = newColor.hexValue()
+        }
+    }
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
+    override static func ignoredProperties() -> [String] {
+        return ["color"]
+    }
+    
+    override var hashValue: Int {
         return self.id.hashValue
+    }
+    
+    func eventCopy() -> Event {
+        let eventCopy = Event()
+        eventCopy.id = self.id
+        eventCopy.name = self.name
+        eventCopy.desc = self.desc
+        eventCopy.color = self.color
+        eventCopy.createdAt = self.createdAt
+        
+        return eventCopy
     }
 }
 

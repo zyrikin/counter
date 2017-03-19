@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Theming
         window!.backgroundColor = UIColor.darkBackground
         Theme.appColorScheme = .darkTheme
+        
+        // Data store
+        Realm.Configuration.defaultConfiguration = Realm.Configuration(
+            schemaVersion: 1,
+            migrationBlock: { migration, oldSchemaVersion in
+                
+                if (oldSchemaVersion < 1) {
+                    migration.enumerateObjects(ofType: Event.className()) { oldObject, newObject in        
+                        newObject!["createdAt"] = Date()
+                    }
+                }
+        })
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL)
         
         return true
     }

@@ -210,9 +210,10 @@
 		9F626D951E6F49000031D7C2 /* counter */ = {
 			isa = PBXGroup;
 			children = (
+				9F626D961E6F49000031D7C2 /* AppDelegate.swift */,
+				9F626E011E6F53160031D7C2 /* Theme.swift */,
 				9F72259D1E7C8DA5008752DC /* Helpers */,
 				9F7225901E7C630F008752DC /* Storyboards */,
-				9F626D961E6F49000031D7C2 /* AppDelegate.swift */,
 				9FBB75421E74662900E5601E /* Controllers */,
 				9FBB754B1E74995300E5601E /* Views */,
 				9FBB75481E746CCB00E5601E /* Cells */,
@@ -220,7 +221,6 @@
 				9FBB753D1E74653400E5601E /* Models */,
 				9F626E201E6F586A0031D7C2 /* Configurations */,
 				9F626E171E6F55530031D7C2 /* Extensions */,
-				9F626E011E6F53160031D7C2 /* Theme.swift */,
 				9FDD34E21E75ACDA00CC0471 /* Resources */,
 				9F626D9F1E6F49000031D7C2 /* LaunchScreen.storyboard */,
 			);

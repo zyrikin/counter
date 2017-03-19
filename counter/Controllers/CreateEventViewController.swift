@@ -40,7 +40,8 @@ final class CreateEventViewController: NZBaseTableViewController {
         if event == nil {
             title = "New Event".localized
             mode = .new
-            event = Event(id: UUID().uuidString, name: "", description: "", color: UIColor.white)
+            event = Event()
+            event?.id = UUID().uuidString
         } else {
             title = "Edit Event".localized
         }
@@ -73,7 +74,7 @@ final class CreateEventViewController: NZBaseTableViewController {
             section.addRow(Row.DescriptionCell.rawValue, height: 60, configure: { row in
                 row.data = [
                     "placeholder": "Description".localized,
-                    "value": event?.description
+                    "value": event?.desc
                 ]
             })
             
@@ -155,7 +156,7 @@ extension CreateEventViewController: InputCellDelegate {
         
         switch identifier {
         case Row.NameCell.rawValue: event?.name = text
-        case Row.DescriptionCell.rawValue: event?.description = text
+        case Row.DescriptionCell.rawValue: event?.desc = text
         default: break
         }
         

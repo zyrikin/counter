@@ -37,6 +37,6 @@ final class EventCell: BaseTableViewCell {
         
         colorIndicatorView.color = event.color
         titleLabel.text = event.name
-        descriptionLabel.text = event.description
+        descriptionLabel.text = event.desc
     }
 }

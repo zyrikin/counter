@@ -10,7 +10,6 @@ import UIKit
 import NZKit
 import SnapKit
 
-
 private enum Section: String {
     case sessions, events
 }
@@ -49,8 +48,7 @@ final class MainViewController: NZBaseTableViewController {
             let headerTitle = "Events".localized.uppercased()
             section.headerView = SectionHeaderView(title: headerTitle)
             
-            let events = EventService.shared.events
-            for event in events {
+            for event in EventService.shared.events {
                 section.addRow(Row.EventCell.rawValue, height: 65, configure: { row in
                     row.data = event
                 })

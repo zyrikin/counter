@@ -40,7 +40,7 @@ final class EventPickerCell: BaseTableViewCell {
         
         colorIndicatorView.color = event.color
         titleLabel.text = event.name
-        descriptionLabel.text = event.description
+        descriptionLabel.text = event.desc
     }
     
     override var showsReorderControl: Bool {

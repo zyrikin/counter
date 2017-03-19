@@ -31,7 +31,7 @@ final class CreateSessionViewController: NZBaseTableViewController {
     fileprivate var mode: Mode = .results
     
     var session: Session?
-    lazy var events: [Event] = EventService.shared.events
+    fileprivate lazy var events: [Event] = EventService.shared.events
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -160,6 +160,9 @@ extension CreateSessionViewController {
         let event = events[fromIndex]
         events.remove(at: fromIndex)
         events.insert(event, at: toIndex)
+        
+        event.createdAt = Date()
+        EventService.shared.add(event: event)
         
         prepareTableViewSections()
     }
