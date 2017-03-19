@@ -116,7 +116,7 @@
                     <navigationItem key="navigationItem" id="edi-2R-KVz">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="yHK-FX-UDs">
                             <connections>
-                                <segue destination="2fP-i1-l5E" kind="unwind" unwindAction="prepareForUnWindWithSegue:" id="1Js-ou-X7a"/>
+                                <segue destination="2fP-i1-l5E" kind="unwind" identifier="unwindToMainVC" unwindAction="prepareForUnWindWithSegue:" id="1Js-ou-X7a"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Create Session" id="vRm-Cq-9oA">

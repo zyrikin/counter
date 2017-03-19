@@ -44,6 +44,8 @@ final class CreateSessionViewController: NZBaseTableViewController {
             session = Session()
         } else {
             title = "Results".localized
+            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close".localized, style: .plain, target: self, action: #selector(closePressed))
+            navigationItem.rightBarButtonItem = nil
         }
         
         token = events.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
@@ -88,18 +90,20 @@ final class CreateSessionViewController: NZBaseTableViewController {
             })
         }
         
-        addSection(Section.events.rawValue) { section in
-            let headerTitle = "Events".localized.uppercased()
-            let headerView = SectionSelectionHeaderView(title: headerTitle)
-            headerView.delegate = self
-            section.headerView = headerView
-            
-            for event in events {
-                section.addRow(Row.EventPickerCell.rawValue, height: 65, configure: { row in
-                    row.data = [
-                        "value": event
-                    ]
-                })
+        if mode == .new {
+            addSection(Section.events.rawValue) { section in
+                let headerTitle = "Events".localized.uppercased()
+                let headerView = SectionSelectionHeaderView(title: headerTitle)
+                headerView.delegate = self
+                section.headerView = headerView
+                
+                for event in events {
+                    section.addRow(Row.EventPickerCell.rawValue, height: 65, configure: { row in
+                        row.data = [
+                            "value": event
+                        ]
+                    })
+                }
             }
         }
     }
@@ -121,6 +125,10 @@ final class CreateSessionViewController: NZBaseTableViewController {
         SessionService.shared.set(events: selectedEvents, for: session)
         
         delegate?.createSession(controller: self, didCreate: session)
+    }
+    
+    @objc func closePressed() {
+        performSegue(withIdentifier: "unwindToMainVC", sender: self)
     }
 }
 
