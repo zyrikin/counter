@@ -37,6 +37,8 @@
 		9F851AD61E7E7302008F4CF1 /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F851AD51E7E7302008F4CF1 /* EventList.swift */; };
 		9F851AD81E7EABC0008F4CF1 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F851AD71E7EABC0008F4CF1 /* SessionService.swift */; };
 		9F851ADA1E7EAC3C008F4CF1 /* SessionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F851AD91E7EAC3C008F4CF1 /* SessionList.swift */; };
+		9F851ADE1E7EDA6A008F4CF1 /* SessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F851ADD1E7EDA6A008F4CF1 /* SessionCell.swift */; };
+		9F851AE01E7EDA78008F4CF1 /* SessionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F851ADF1E7EDA78008F4CF1 /* SessionCell.xib */; };
 		9FBB753F1E74654A00E5601E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB753E1E74654A00E5601E /* Session.swift */; };
 		9FBB75411E7465A500E5601E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB75401E7465A500E5601E /* Event.swift */; };
 		9FBB75441E74667C00E5601E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB75431E74667C00E5601E /* MainViewController.swift */; };
@@ -128,6 +130,8 @@
 		9F851AD51E7E7302008F4CF1 /* EventList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventList.swift; path = Models/EventList.swift; sourceTree = "<group>"; };
 		9F851AD71E7EABC0008F4CF1 /* SessionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionService.swift; path = Services/SessionService.swift; sourceTree = "<group>"; };
 		9F851AD91E7EAC3C008F4CF1 /* SessionList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionList.swift; path = Models/SessionList.swift; sourceTree = "<group>"; };
+		9F851ADD1E7EDA6A008F4CF1 /* SessionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionCell.swift; path = Cells/SessionCell.swift; sourceTree = "<group>"; };
+		9F851ADF1E7EDA78008F4CF1 /* SessionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SessionCell.xib; path = Cells/SessionCell.xib; sourceTree = "<group>"; };
 		9FBB753E1E74654A00E5601E /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Session.swift; path = Models/Session.swift; sourceTree = "<group>"; };
 		9FBB75401E7465A500E5601E /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = Models/Event.swift; sourceTree = "<group>"; };
 		9FBB75431E74667C00E5601E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Controllers/MainViewController.swift; sourceTree = "<group>"; };
@@ -334,6 +338,8 @@
 				9F7225951E7C641A008752DC /* ColorPickerCell.swift */,
 				9F7225A01E7D3832008752DC /* EventPickerCell.swift */,
 				9F7225A21E7D3843008752DC /* EventPickerCell.xib */,
+				9F851ADD1E7EDA6A008F4CF1 /* SessionCell.swift */,
+				9F851ADF1E7EDA78008F4CF1 /* SessionCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -498,6 +504,7 @@
 				9FDD34E51E75AD0700CC0471 /* Localizable.strings in Resources */,
 				9F626D9E1E6F49000031D7C2 /* Assets.xcassets in Resources */,
 				9F7225A31E7D3843008752DC /* EventPickerCell.xib in Resources */,
+				9F851AE01E7EDA78008F4CF1 /* SessionCell.xib in Resources */,
 				9F07745A1E7B382500B13235 /* EventCell.xib in Resources */,
 				9F7225921E7C632A008752DC /* ColorPicker.storyboard in Resources */,
 				9F626D9C1E6F49000031D7C2 /* Main.storyboard in Resources */,
@@ -690,6 +697,7 @@
 				9F626E1B1E6F56E10031D7C2 /* UIFont+Additions.swift in Sources */,
 				9FDD34F01E75C5F300CC0471 /* InputCell.swift in Sources */,
 				9F626E161E6F55500031D7C2 /* UIColor+Additions.swift in Sources */,
+				9F851ADE1E7EDA6A008F4CF1 /* SessionCell.swift in Sources */,
 				9F0774551E7B19C700B13235 /* ColorIndicatorView.swift in Sources */,
 				9FBB754D1E74997800E5601E /* UITableView+Additions.swift in Sources */,
 				9F626E221E6F58950031D7C2 /* Localization.swift in Sources */,

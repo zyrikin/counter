@@ -110,8 +110,15 @@ final class CreateSessionViewController: NZBaseTableViewController {
 
     @IBAction func startPressed(_ sender: UIBarButtonItem) {
         tableView.endEditing(true)
+
+        guard let session = session, session.name.characters.count > 0, let selectedIndexPaths = tableView.indexPathsForSelectedRows else { return }
         
-        guard let session = session else { return }
+        SessionService.shared.add(session: session)
+        
+        let selectedRows = selectedIndexPaths.map { $0.row }.sorted()
+        
+        let selectedEvents: [Event] = selectedRows.map { events[$0] }
+        SessionService.shared.set(events: selectedEvents, for: session)
         
         delegate?.createSession(controller: self, didCreate: session)
     }
@@ -127,6 +134,7 @@ extension CreateSessionViewController {
         case Row.NameCell.rawValue:
             
             let cell: InputCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.identifier = row.name
             cell.isUserInteractionEnabled = (mode == .new) ? true : false
             cell.inputTextField.placeholder = dict["placeholder"] as? String
             cell.inputTextField.text = dict["value"] as? String

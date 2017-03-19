@@ -72,6 +72,18 @@ final class SessionService {
         }
     }
     
+    func set(events: [Event], for session: Session) {
+        do {
+            try realm.write {
+                session.events.removeAll()
+                session.events.append(objectsIn: events)
+            }
+        }
+        catch let error {
+            print("Session Set Events Error: \(error)")
+        }
+    }
+    
     func addResult(event: Event, to session: Session) {
         do {
             try realm.write {
