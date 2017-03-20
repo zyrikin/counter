@@ -54,12 +54,20 @@
                                             <action selector="undoPressed:" destination="dBK-cW-aga" eventType="touchUpInside" id="FOO-jr-0jx"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qwm-F5-ZY8" customClass="HistoryView" customModule="counter" customModuleProvider="target">
+                                        <rect key="frame" x="70" y="0.0" width="881" height="36"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="8j8-k8-r3X" firstAttribute="centerY" secondItem="zsP-7e-T0e" secondAttribute="centerY" id="5ap-aT-VJR"/>
+                                    <constraint firstItem="qwm-F5-ZY8" firstAttribute="leading" secondItem="8j8-k8-r3X" secondAttribute="trailing" constant="8" id="6ya-JP-LYy"/>
+                                    <constraint firstItem="qwm-F5-ZY8" firstAttribute="top" secondItem="zsP-7e-T0e" secondAttribute="top" id="9qR-2M-Fgt"/>
                                     <constraint firstAttribute="height" constant="36" id="Q9z-s5-9Er"/>
                                     <constraint firstAttribute="trailing" secondItem="4rz-wi-8V1" secondAttribute="trailing" constant="20" id="au5-I1-fBC"/>
                                     <constraint firstItem="4rz-wi-8V1" firstAttribute="centerY" secondItem="zsP-7e-T0e" secondAttribute="centerY" id="exG-Z2-UGB"/>
+                                    <constraint firstAttribute="bottom" secondItem="qwm-F5-ZY8" secondAttribute="bottom" id="fKr-Gp-e2l"/>
+                                    <constraint firstItem="4rz-wi-8V1" firstAttribute="leading" secondItem="qwm-F5-ZY8" secondAttribute="trailing" constant="15" id="feD-RR-h0H"/>
                                     <constraint firstItem="8j8-k8-r3X" firstAttribute="leading" secondItem="zsP-7e-T0e" secondAttribute="leading" constant="20" id="tUZ-9V-Jh8"/>
                                 </constraints>
                             </view>
@@ -112,8 +120,9 @@
                     <connections>
                         <outlet property="collectionView" destination="DzV-5h-rbH" id="eQy-ur-rI7"/>
                         <outlet property="flowLayout" destination="IGP-xp-p3l" id="WAW-nc-3TN"/>
+                        <outlet property="historyContainerView" destination="zsP-7e-T0e" id="NOj-Sf-ijz"/>
                         <outlet property="historyLabel" destination="8j8-k8-r3X" id="H0v-Im-EJm"/>
-                        <outlet property="historyView" destination="zsP-7e-T0e" id="zDg-E3-9RE"/>
+                        <outlet property="historyView" destination="qwm-F5-ZY8" id="lNc-qd-YKP"/>
                         <outlet property="timerLabel" destination="wq5-0b-e5b" id="vPR-rc-p4F"/>
                         <outlet property="timerView" destination="Fza-a2-Jtk" id="Mt7-T7-bYi"/>
                         <outlet property="undoButton" destination="4rz-wi-8V1" id="2fA-jp-Q3S"/>

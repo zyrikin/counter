@@ -98,7 +98,7 @@ final class SessionService {
     func addResult(event: Event, to session: Session) {
         do {
             try realm.write {
-                session.result.append(event)
+                session.result.insert(event, at: session.result.startIndex)
             }
         }
         catch let error {
@@ -106,10 +106,11 @@ final class SessionService {
         }
     }
     
-    func removeLastResult(event: Event, from session: Session) {
+    func removeLastResult(from session: Session) {
+        guard session.result.count > 0 else { return }
         do {
             try realm.write {
-                session.result.removeLast()
+                session.result.remove(objectAtIndex: session.result.startIndex)
             }
         }
         catch let error {

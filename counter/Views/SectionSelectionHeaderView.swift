@@ -28,7 +28,6 @@ final class SectionSelectionHeaderView: UIView {
         $0.setTitleColor(UIColor.callToAction, for: .normal)
         $0.setTitleColor(UIColor.callToAction.withAlphaComponent(0.2), for: .highlighted)
         $0.titleLabel?.font = UIFont.defaultFont(17)
-        $0.addTarget(self, action: #selector(selectAllTapped), for: .touchUpInside)
         return $0
     }(UIButton())
     
@@ -37,7 +36,6 @@ final class SectionSelectionHeaderView: UIView {
         $0.setTitleColor(UIColor.callToAction, for: .normal)
         $0.setTitleColor(UIColor.callToAction.withAlphaComponent(0.2), for: .highlighted)
         $0.titleLabel?.font = UIFont.defaultFont(17)
-        $0.addTarget(self, action: #selector(selectNoneTapped), for: .touchUpInside)
         return $0
     }(UIButton())
     
@@ -82,6 +80,9 @@ fileprivate extension SectionSelectionHeaderView {
             make.right.equalTo(selectAllButton.snp.left).inset(-edgeInset)
             make.firstBaseline.equalTo(selectAllButton)
         }
+        
+        selectAllButton.addTarget(self, action: #selector(selectAllTapped), for: .touchUpInside)
+        selectNoneButton.addTarget(self, action: #selector(selectNoneTapped), for: .touchUpInside)
     }
     
     @objc func selectAllTapped() {

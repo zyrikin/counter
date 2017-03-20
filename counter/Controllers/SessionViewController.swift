@@ -19,7 +19,8 @@ final class SessionViewController: UIViewController {
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     @IBOutlet weak var timerView: UIView!
-    @IBOutlet weak var historyView: UIView!
+    @IBOutlet weak var historyContainerView: UIView!
+    @IBOutlet weak var historyView: HistoryView!
     
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var historyLabel: UILabel!
@@ -65,6 +66,8 @@ final class SessionViewController: UIViewController {
         title = session?.name
         mode = .notStarted
         
+        historyView.session = session
+        
         collectionView.reloadData()
     }
     
@@ -104,6 +107,7 @@ final class SessionViewController: UIViewController {
     }
     
     @IBAction func undoPressed(_ sender: UIButton) {
+        SessionService.shared.removeLastResult(from: session)
     }
     
     deinit {
@@ -120,7 +124,7 @@ fileprivate extension SessionViewController {
         flowLayout.minimumLineSpacing = 20
         flowLayout.minimumInteritemSpacing = 20
         
-        [timerView, historyView].forEach { (view) in
+        [timerView, historyContainerView].forEach { (view) in
             view?.backgroundColor = UIColor.darkBackground
         }
         
@@ -172,5 +176,10 @@ extension SessionViewController: UICollectionViewDataSource {
 extension SessionViewController: SessionEventButtonCellDelegate {
     func sessionEventButton(cell: SessionEventButtonCell, didTap event: Event) {
         
+        if mode == .notStarted || mode == .paused {
+            startResumeSession()
+        }
+        
+        SessionService.shared.addResult(event: event, to: session)
     }
 }
