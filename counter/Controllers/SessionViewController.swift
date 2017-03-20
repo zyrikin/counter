@@ -9,11 +9,17 @@
 import UIKit
 import RealmSwift
 
+protocol SessionViewControllerDelegate: class {
+    func session(controller: SessionViewController, didEnd session: Session)
+}
+
 private enum Mode {
     case notStarted, paused, ongoing, ended
 }
 
 final class SessionViewController: UIViewController {
+    
+    weak var delegate: SessionViewControllerDelegate?
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
@@ -40,18 +46,23 @@ final class SessionViewController: UIViewController {
             let endButton = UIBarButtonItem(title: "End Session".localized, style: .plain, target: self, action: #selector(endSession))
             let fixedSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
             fixedSpace.width = 30
+            let closeButton = UIBarButtonItem(title: "Close".localized, style: .plain, target: self, action: #selector(closePressed))
             
             switch mode {
             case .notStarted:
+                navigationItem.leftBarButtonItem = closeButton
                 navigationItem.rightBarButtonItems = [startButton]
                 
             case .paused:
+                navigationItem.leftBarButtonItem = closeButton
                 navigationItem.rightBarButtonItems = [resumeButton]
                 
             case .ongoing:
+                navigationItem.leftBarButtonItem = nil
                 navigationItem.rightBarButtonItems = [endButton, fixedSpace, pauseButton]
                 
             case .ended:
+                navigationItem.leftBarButtonItem = nil
                 navigationItem.rightBarButtonItems = nil
             }
         }
@@ -104,10 +115,16 @@ final class SessionViewController: UIViewController {
     @objc func endSession() {
         mode = .ended
         timer?.invalidate()
+        
+        delegate?.session(controller: self, didEnd: session)
     }
     
     @IBAction func undoPressed(_ sender: UIButton) {
         SessionService.shared.removeLastResult(from: session)
+    }
+    
+    @IBAction func closePressed() {
+        self.performSegue(withIdentifier: "unWindToMainVC", sender: self)
     }
     
     deinit {

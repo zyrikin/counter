@@ -140,6 +140,7 @@ fileprivate extension MainViewController {
         if let nvc = UIStoryboard(name: "Session", bundle: nil).instantiateInitialViewController() as? UINavigationController,
             let sessionVC = nvc.topViewController as? SessionViewController {
             sessionVC.session = session
+            sessionVC.delegate = self
             
             present(nvc, animated: true, completion: nil)
         }
@@ -191,8 +192,9 @@ extension MainViewController {
         case Row.AddSessionCell.rawValue:
             performSegue(withIdentifier: "ShowCreateSession", sender: self)
         case Row.SessionCell.rawValue:
-//            performSegue(withIdentifier: "ShowCreateSession", sender: row.data)
-            showSessionVC(session: row.data as! Session)
+            performSegue(withIdentifier: "ShowCreateSession", sender: row.data)
+            /*  Uncomment for quick return to session VC
+                showSessionVC(session: row.data as! Session) */
         case Row.AddEventCell.rawValue:
             performSegue(withIdentifier: "ShowAddEvent", sender: self)
         case Row.EventCell.rawValue:
@@ -226,5 +228,14 @@ extension MainViewController: CreateSessionControllerDelegate {
         navigationController?.dismiss(animated: true) { [weak self] _ in
             self?.showSessionVC(session: session)
         }
+    }
+}
+
+// MARK:- SessionViewControllerDelegate methods
+extension MainViewController: SessionViewControllerDelegate {
+    func session(controller: SessionViewController, didEnd session: Session) {
+        navigationController?.dismiss(animated: true, completion: { 
+            self.performSegue(withIdentifier: "ShowCreateSession", sender: session)
+        })
     }
 }
