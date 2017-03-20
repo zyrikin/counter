@@ -61,9 +61,13 @@ final class MainViewController: NZBaseTableViewController {
                 self?.prepareTableViewSections()
                 self?.tableView.reloadData()
                 
-            case .update(_, _, _, _):
+            case .update(_, let deletions, let insertions, let modifications):
                 self?.prepareTableViewSections()
-                self?.tableView.reloadData()
+                self?.tableView.beginUpdates()
+                self?.tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }), with: .automatic)
+                self?.tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}), with: .automatic)
+                self?.tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }), with: .automatic)
+                self?.tableView.endUpdates()
                 
             case .error(let error):
                 print("MainVC Session Section Error: \(error)")
@@ -177,6 +181,20 @@ extension MainViewController {
         }
         
         return defaultCell(indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete, let section = getSection(indexPath), section.name == Section.sessions.rawValue {
+            SessionService.shared.remove(session: sessions[indexPath.row])
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if let section = getSection(indexPath) {
+            return section.name == Section.sessions.rawValue
+        }
+        
+        return false
     }
 }
 

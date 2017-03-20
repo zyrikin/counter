@@ -54,9 +54,23 @@ final class SessionService {
             }
         }
         catch let error {
-            print("Event Add Error: \(error)")
+            print("Session Add Error: \(error)")
         }
     }
+    
+    func remove(session: Session) {
+        guard let idx = sessions.index(of: session) else { return }
+        
+        do {
+            try realm.write {
+                sessions.remove(objectAtIndex: idx)
+            }
+        }
+        catch let error {
+            print("Session Remove Error: \(error)")
+        }
+    }
+    
     
     func update(session: Session, name: String? = nil, duration: TimeInterval? = nil, startedAt: Date? = nil, endedAt: Date? = nil) {
         do {
