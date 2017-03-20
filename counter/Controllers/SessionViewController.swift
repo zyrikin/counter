@@ -11,6 +11,7 @@ import RealmSwift
 
 protocol SessionViewControllerDelegate: class {
     func session(controller: SessionViewController, didEnd session: Session)
+    func session(controller: SessionViewController, didClose session: Session)
 }
 
 private enum Mode {
@@ -124,7 +125,7 @@ final class SessionViewController: UIViewController {
     }
     
     @IBAction func closePressed() {
-        self.performSegue(withIdentifier: "unWindToMainVC", sender: self)
+        delegate?.session(controller: self, didClose: session)
     }
     
     deinit {

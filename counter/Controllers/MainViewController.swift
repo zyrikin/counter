@@ -238,4 +238,8 @@ extension MainViewController: SessionViewControllerDelegate {
             self.performSegue(withIdentifier: "ShowCreateSession", sender: session)
         })
     }
+    
+    func session(controller: SessionViewController, didClose session: Session) {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
 }
