@@ -12,6 +12,7 @@ import RealmSwift
 
 protocol CreateSessionControllerDelegate: class {
     func createSession(controller: CreateSessionViewController, didCreate session: Session)
+    func createSession(controller: CreateSessionViewController, didTapResume session: Session)
 }
 
 private enum Mode {
@@ -46,7 +47,7 @@ final class CreateSessionViewController: NZBaseTableViewController {
             title = "Results".localized
             mode = .results
             navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close".localized, style: .plain, target: self, action: #selector(closePressed))
-            navigationItem.rightBarButtonItem = nil
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Resume Session".localized, style: .plain, target: self, action: #selector(resumePressed))
         }
         
         token = events.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
@@ -143,6 +144,11 @@ final class CreateSessionViewController: NZBaseTableViewController {
         SessionService.shared.set(events: selectedEvents, for: session)
         
         delegate?.createSession(controller: self, didCreate: session)
+    }
+    
+    @objc func resumePressed() {
+        guard let session = session else { return }
+        delegate?.createSession(controller: self, didTapResume: session)
     }
     
     @objc func closePressed() {

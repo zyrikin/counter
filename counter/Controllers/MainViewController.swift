@@ -247,6 +247,12 @@ extension MainViewController: CreateSessionControllerDelegate {
             self?.showSessionVC(session: session)
         }
     }
+    
+    func createSession(controller: CreateSessionViewController, didTapResume session: Session) {
+        navigationController?.dismiss(animated: true) { [weak self] _ in
+            self?.showSessionVC(session: session)
+        }
+    }
 }
 
 // MARK:- SessionViewControllerDelegate methods
