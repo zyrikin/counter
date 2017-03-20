@@ -77,4 +77,16 @@ extension String {
     static func GUIDString() -> String {
         return UUID().uuidString
     }
+    
+    func width(using font: UIFont) -> CGFloat {
+        let fontAttributes = [NSFontAttributeName: font]
+        let size = self.size(attributes: fontAttributes)
+        return size.width
+    }
+    
+    func height(using font: UIFont) -> CGFloat {
+        let fontAttributes = [NSFontAttributeName: font]
+        let size = self.size(attributes: fontAttributes)
+        return size.height
+    }
 }

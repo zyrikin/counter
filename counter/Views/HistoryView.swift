@@ -14,7 +14,6 @@ final class HistoryView: UIView {
     fileprivate let layout: UICollectionViewFlowLayout = {
         $0.scrollDirection = .horizontal
         $0.minimumInteritemSpacing = 8
-        $0.itemSize = CGSize(width: 80, height: 20)
         return $0
     }(UICollectionViewFlowLayout())
     
@@ -36,6 +35,10 @@ final class HistoryView: UIView {
         super.init(coder: aDecoder)
         setUp()
     }
+    
+    deinit {
+        token?.stop()
+    }
 }
 
 fileprivate extension HistoryView {
@@ -46,6 +49,7 @@ fileprivate extension HistoryView {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.clear
         collectionView.dataSource = self
+        collectionView.delegate = self
         
         collectionView.register(HistoryCell.self)
         
@@ -86,5 +90,13 @@ extension HistoryView: UICollectionViewDataSource {
         let cell: HistoryCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         cell.event = session.result[indexPath.item]
         return cell
+    }
+}
+
+extension HistoryView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let height: CGFloat = 20
+        let width = session.result[indexPath.item].name.width(using: HistoryCell.labelFont()) + HistoryCell.labelHorizontalPadding()
+        return CGSize(width: width, height: height)
     }
 }

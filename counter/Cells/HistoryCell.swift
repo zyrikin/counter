@@ -22,8 +22,9 @@ final class HistoryCell: UICollectionViewCell {
     
     fileprivate lazy var label: PaddedLabel = {
         $0.textColor = UIColor.white.withAlphaComponent(0.8)
-        $0.font = UIFont.defaultFont(10)
-        $0.horizontalPadding = 20
+        $0.font = HistoryCell.labelFont()
+        $0.horizontalPadding = HistoryCell.labelHorizontalPadding()
+        $0.verticalPadding = 10
         $0.cornerRadius = 3
         $0.borderWidth = Constants.Layer.borderWidth
         return $0
@@ -46,6 +47,17 @@ final class HistoryCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
+    }
+}
+
+// MARK:- Helper methods
+extension HistoryCell {
+    class func labelFont() -> UIFont {
+        return UIFont.defaultFont(10)
+    }
+    
+    class func labelHorizontalPadding() -> CGFloat {
+        return CGFloat(20)
     }
 }
 
