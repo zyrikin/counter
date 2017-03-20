@@ -50,7 +50,6 @@ final class SessionCell: BaseTableViewCell {
         
         [eventsValue, totalValue, durationValue].forEach { (label) in
             label?.textColor = UIColor.label1
-            label?.font = UIFont.defaultLightFont(24)
         }
     }
     

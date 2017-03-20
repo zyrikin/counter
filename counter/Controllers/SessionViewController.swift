@@ -128,7 +128,6 @@ fileprivate extension SessionViewController {
             view?.backgroundColor = UIColor.darkBackground
         }
         
-        timerLabel.font = UIFont.defaultLightFont(24)
         timerLabel.textColor = UIColor.label1
         timerLabel.text = session.duration.timeIntervalAsString("hh:mm:ss")
         historyLabel.font = UIFont.defaultLightFont(10)
