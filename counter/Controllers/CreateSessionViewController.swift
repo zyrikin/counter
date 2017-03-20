@@ -111,7 +111,7 @@ final class CreateSessionViewController: NZBaseTableViewController {
         
         if let session = session, mode == .results {
             addSection(Section.results.rawValue) { section in
-                let headerView = SectionHeaderView(title: "Results".localized.uppercased())
+                let headerView = SectionHeaderView(title: "Results".localized.uppercased(), horizontalInset: 20)
                 section.headerView = headerView
                 
                 for (event, count) in session.result.freqTuple() {
@@ -193,6 +193,9 @@ extension CreateSessionViewController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section != 1 {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
