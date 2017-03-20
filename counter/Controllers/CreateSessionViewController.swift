@@ -19,11 +19,11 @@ private enum Mode {
 }
 
 private enum Section: String {
-    case info, events
+    case info, events, results
 }
 
 private enum Row: String {
-    case NameCell, EventPickerCell
+    case NameCell, EventPickerCell, EventResultCell
 }
 
 final class CreateSessionViewController: NZBaseTableViewController {
@@ -44,6 +44,7 @@ final class CreateSessionViewController: NZBaseTableViewController {
             session = Session()
         } else {
             title = "Results".localized
+            mode = .results
             navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close".localized, style: .plain, target: self, action: #selector(closePressed))
             navigationItem.rightBarButtonItem = nil
         }
@@ -73,6 +74,7 @@ final class CreateSessionViewController: NZBaseTableViewController {
         
         tableView.register(InputCell.self)
         tableView.register(UINib.init(nibName: "EventPickerCell", bundle: nil), forCellReuseIdentifier: EventPickerCell.defaultReuseIdentifier)
+        tableView.register(UINib.init(nibName: "EventResultCell", bundle: nil), forCellReuseIdentifier: EventResultCell.defaultReuseIdentifier)
     }
     
     override func prepareTableViewSections() {
@@ -101,6 +103,22 @@ final class CreateSessionViewController: NZBaseTableViewController {
                     section.addRow(Row.EventPickerCell.rawValue, height: 65, configure: { row in
                         row.data = [
                             "value": event
+                        ]
+                    })
+                }
+            }
+        }
+        
+        if let session = session, mode == .results {
+            addSection(Section.results.rawValue) { section in
+                let headerView = SectionHeaderView(title: "Results".localized.uppercased())
+                section.headerView = headerView
+                
+                for (event, count) in session.result.freqTuple() {
+                    section.addRow(Row.EventResultCell.rawValue, height: 65, configure: { row in
+                        row.data = [
+                            "value": event,
+                            "count": count
                         ]
                     })
                 }
@@ -154,6 +172,17 @@ extension CreateSessionViewController {
             let cell: EventPickerCell = tableView.dequeueReusableCell(for: indexPath)
             cell.event = dict["value"] as? Event
             cell.isEditing = self.tableView(self.tableView, canMoveRowAt: indexPath)
+            return cell
+            
+        case Row.EventResultCell.rawValue:
+            
+            let cell: EventResultCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.event = dict["value"] as? Event
+            if let count = dict["count"] as? Int {
+                cell.totalLabel.text = "\(count)"
+            } else {
+                cell.totalLabel.text = ""
+            }
             return cell
             
         default:
