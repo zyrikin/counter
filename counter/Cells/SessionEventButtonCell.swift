@@ -20,7 +20,10 @@ final class SessionEventButtonCell: UICollectionViewCell {
     
     lazy var button: PaddedButton = {
         $0.layer.cornerRadius = 8
-        $0.layer.masksToBounds = true
+        $0.layer.shadowColor = Constants.Layer.shadowColor
+        $0.layer.shadowRadius = 10
+        $0.layer.shadowOffset = Constants.Layer.shadowOffset
+        $0.layer.shadowOpacity = Constants.Layer.shadowOpacity
         return $0
     }(PaddedButton())
     
@@ -39,15 +42,10 @@ final class SessionEventButtonCell: UICollectionViewCell {
         }
     }
     
-    var color: UIColor = UIColor.clear {
-        didSet {
-            button.backgroundColor = color
-            titleLabel.textColor = UIColor(contrastingBlackOrWhiteColorOn: color, isFlat: true)
-        }
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.clipsToBounds = false
         
         contentView.addSubview(button)
         button.snp.makeConstraints { make in
@@ -70,12 +68,19 @@ final class SessionEventButtonCell: UICollectionViewCell {
         guard let event = event else { return }
         delegate?.sessionEventButton(cell: self, didTap: event)
     }
+    
+    override func draw(_ rect: CGRect) {
+        guard let color = event?.color else { return }
+        let lighterColor = color.lighterColor(0.5)
+        button.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: button.frame, andColors: [lighterColor, color])
+    }
 }
 
 fileprivate extension SessionEventButtonCell {
     func updateUI() {
         guard let event = event else { return }
-        color = event.color
+        button.backgroundColor = event.color
         titleLabel.text = event.name
+        titleLabel.textColor = UIColor(contrastingBlackOrWhiteColorOn: event.color, isFlat: true)
     }
 }
