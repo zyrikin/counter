@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        registerNotifications()
+        
         // App language
         ProfileSettings.setAppLanguage(ProfileSettings.appLanguage())
         
@@ -36,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
         })
         
-        print(Realm.Configuration.defaultConfiguration.fileURL)
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         return true
     }
@@ -62,7 +64,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+}
 
-
+fileprivate extension AppDelegate {
+    func registerNotifications() {
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: Notifications.ApplicationLanguageChanged.rawValue), object: nil, queue: nil) { [unowned self] note in
+            self.reload()
+        }
+    }
+    
+    func reload() {
+        window?.rootViewController = nil
+        window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+    }
 }
 

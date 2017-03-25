@@ -234,14 +234,6 @@ extension CreateSessionViewController {
         
         EventService.shared.moveEvent(from: fromIndex, to: toIndex)
     }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        for view in cell.subviews {
-            if String(describing: type(of: view)) == "UITableViewCellReorderControl" {
-                view.backgroundColor = UIColor.darkBackground
-            }
-        }
-    }
 }
 
 // MARK:- InputCellDelegate methods

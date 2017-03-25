@@ -49,6 +49,7 @@
 		9F851AE81E7F133F008F4CF1 /* SessionEventButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F851AE71E7F133F008F4CF1 /* SessionEventButtonCell.swift */; };
 		9F851AEA1E7F319B008F4CF1 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F851AE91E7F319B008F4CF1 /* Helpers.swift */; };
 		9F851AEC1E8034DD008F4CF1 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F851AEB1E8034DD008F4CF1 /* HistoryView.swift */; };
+		9F8D336D1E86DDE9002A9F3D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8D336C1E86DDE9002A9F3D /* SettingsViewController.swift */; };
 		9FBB753F1E74654A00E5601E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB753E1E74654A00E5601E /* Session.swift */; };
 		9FBB75411E7465A500E5601E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB75401E7465A500E5601E /* Event.swift */; };
 		9FBB75441E74667C00E5601E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB75431E74667C00E5601E /* MainViewController.swift */; };
@@ -152,6 +153,7 @@
 		9F851AE71E7F133F008F4CF1 /* SessionEventButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionEventButtonCell.swift; path = Cells/SessionEventButtonCell.swift; sourceTree = "<group>"; };
 		9F851AE91E7F319B008F4CF1 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = Helpers/Helpers.swift; sourceTree = "<group>"; };
 		9F851AEB1E8034DD008F4CF1 /* HistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryView.swift; path = Views/HistoryView.swift; sourceTree = "<group>"; };
+		9F8D336C1E86DDE9002A9F3D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Controllers/SettingsViewController.swift; sourceTree = "<group>"; };
 		9FBB753E1E74654A00E5601E /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Session.swift; path = Models/Session.swift; sourceTree = "<group>"; };
 		9FBB75401E7465A500E5601E /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = Models/Event.swift; sourceTree = "<group>"; };
 		9FBB75431E74667C00E5601E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Controllers/MainViewController.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				9FDD34ED1E75B38600CC0471 /* CreateEventViewController.swift */,
 				9F7225931E7C636E008752DC /* ColorPickerViewController.swift */,
 				9F851AE51E7F11E0008F4CF1 /* SessionViewController.swift */,
+				9F8D336C1E86DDE9002A9F3D /* SettingsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -737,6 +740,7 @@
 				9F851ADE1E7EDA6A008F4CF1 /* SessionCell.swift in Sources */,
 				9F851AE61E7F11E0008F4CF1 /* SessionViewController.swift in Sources */,
 				9F0774551E7B19C700B13235 /* ColorIndicatorView.swift in Sources */,
+				9F8D336D1E86DDE9002A9F3D /* SettingsViewController.swift in Sources */,
 				9F851AE21E7F0F87008F4CF1 /* TimeInternal+Additions.swift in Sources */,
 				9FBB754D1E74997800E5601E /* UITableView+Additions.swift in Sources */,
 				9F626E221E6F58950031D7C2 /* Localization.swift in Sources */,
