@@ -10,11 +10,11 @@ import UIKit
 import NZKit
 
 private enum Section: String {
-    case language, resetEvents
+    case language, reset
 }
 
 private enum Row: String {
-    case LanguageCell, ResetEventscell
+    case LanguageCell, ResetEventsCell
 }
 
 final class SettingsViewController: NZBaseTableViewController {
@@ -24,6 +24,7 @@ final class SettingsViewController: NZBaseTableViewController {
 
         tableView.commonSetUp()
         tableView.register(BaseTableViewCell.self, forCellReuseIdentifier: Row.LanguageCell.rawValue)
+        tableView.register(BaseTableViewCell.self, forCellReuseIdentifier: Row.ResetEventsCell.rawValue)
         
         title = "Settings".localized
         
@@ -47,6 +48,15 @@ final class SettingsViewController: NZBaseTableViewController {
                     ]
                 })
             }
+        }
+        
+        addSection(Section.reset.rawValue) { (section) in
+            section.headerView = SectionHeaderView(title: "")
+            section.headerHeight = 30
+            
+            section.addRow(Row.ResetEventsCell.rawValue, configure: { (row) in
+                row.data = "Delete All Events".localized
+            })
         }
     }
 }
@@ -73,6 +83,13 @@ extension SettingsViewController {
                 return cell
             }
             
+        case Row.ResetEventsCell.rawValue:
+            
+            if let cell = tableView.dequeueReusableCell(withIdentifier: row.name, for: indexPath) as? BaseTableViewCell {
+                cell.textLabel?.text = row.data as? String
+                return cell
+            }
+            
         default:
             break
         }
@@ -80,7 +97,30 @@ extension SettingsViewController {
         return defaultCell(indexPath)
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let section = getSection(indexPath) else { return }
+        
+        switch section.name {
+        
+        case Section.reset.rawValue:
+            cell.textLabel?.textAlignment = .center
+            cell.textLabel?.textColor = UIColor.white
+            cell.contentView.backgroundColor = UIColor.destructive
+            cell.selectedBackgroundView = {
+                let view = UIView()
+                view.backgroundColor = UIColor.destructive.darkerColor(0.3)
+                return view
+            }()
+
+            
+        default:
+            break
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         guard let row = getRow(indexPath) else { return }
         
         switch row.name {
@@ -92,6 +132,9 @@ extension SettingsViewController {
                 let appLanguage = Constants.SupportedLanguages(rawValue: uiLanguage.description) {
                 ProfileSettings.setAppLanguage(appLanguage)
             }
+            
+        case Row.ResetEventsCell.rawValue:
+            EventService.shared.removeAllEvents()
             
         default:
             break

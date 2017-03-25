@@ -87,8 +87,16 @@ final class EventService {
     }
     
     func remove(event: Event) {
+        guard let idx = events.index(of: event) else { return }
+        
         try! realm.write {
-            realm.delete(event)
+            events.remove(objectAtIndex: idx)
+        }
+    }
+    
+    func removeAllEvents() {
+        try! realm.write {
+            events.removeAll()
         }
     }
 }

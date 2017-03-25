@@ -27,6 +27,10 @@ extension UIColor {
         return UIColor(rgb: 0x4d4d4d)
     }
     
+    class var destructive: UIColor {
+        return UIColor(rgb: 0xca5253)
+    }
+    
     class var tableViewCellPrimaryText: UIColor {
         return UIColor.darkGray
     }

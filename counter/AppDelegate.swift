@@ -74,8 +74,21 @@ fileprivate extension AppDelegate {
     }
     
     func reload() {
-        window?.rootViewController = nil
-        window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        
+        guard let nvc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as? UINavigationController else { return }
+        
+        // Transition to content
+        let overlayView = UIScreen.main.snapshotView(afterScreenUpdates: false)
+
+        nvc.topViewController?.view.addSubview(overlayView)
+        
+        window?.rootViewController = nvc
+        
+        UIView.animate(withDuration: 0.3, delay: 0, options: .transitionCrossDissolve, animations: {
+            overlayView.alpha = 0
+        }) { finished in
+            overlayView.removeFromSuperview()
+        }
     }
 }
 
