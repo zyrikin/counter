@@ -28,8 +28,6 @@ final class SessionEventButtonCell: UICollectionViewCell {
     }(PaddedButton())
     
     lazy var titleLabel: UILabel = {
-        $0.font = UIFont.defaultBoldFont(24)
-        $0.numberOfLines = 3
         $0.adjustsFontSizeToFitWidth = true
         $0.minimumScaleFactor = 0.5
         $0.textAlignment = .center
@@ -46,6 +44,8 @@ final class SessionEventButtonCell: UICollectionViewCell {
         super.awakeFromNib()
         
         self.clipsToBounds = false
+        
+        setup()
         
         contentView.addSubview(button)
         button.snp.makeConstraints { make in
@@ -74,9 +74,26 @@ final class SessionEventButtonCell: UICollectionViewCell {
         let lighterColor = color.lighterColor(0.5)
         button.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: button.frame, andColors: [lighterColor, color])
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if traitCollection.horizontalSizeClass != previousTraitCollection?.horizontalSizeClass {
+            setup()
+        }
+    }
 }
 
 fileprivate extension SessionEventButtonCell {
+    func setup() {
+        let isHorizontallyCompact = traitCollection.horizontalSizeClass == .compact
+        let fontSize: CGFloat = isHorizontallyCompact ? 17 : 24
+        let numberOfLines = isHorizontallyCompact ? 1 : 3
+        
+        self.titleLabel.font = UIFont.defaultBoldFont(fontSize)
+        self.titleLabel.numberOfLines = numberOfLines
+    }
+    
     func updateUI() {
         guard let event = event else { return }
         button.backgroundColor = event.color

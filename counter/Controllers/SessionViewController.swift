@@ -95,7 +95,11 @@ final class SessionViewController: UIViewController {
     }
     
     func recalculateItem(at size: CGSize) {
-        let l = (size.width - flowLayout.sectionInset.left - flowLayout.sectionInset.right - (3*flowLayout.minimumInteritemSpacing)) / 4
+        
+        let isHorizontallyCompact = traitCollection.horizontalSizeClass == .compact
+        let column: CGFloat = isHorizontallyCompact ? 3 : 4
+        
+        let l = (size.width - flowLayout.sectionInset.left - flowLayout.sectionInset.right - (3*flowLayout.minimumInteritemSpacing)) / column
         flowLayout.itemSize = CGSize(width: l, height: 100)
     }
     

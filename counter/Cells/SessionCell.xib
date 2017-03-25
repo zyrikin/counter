@@ -31,7 +31,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ooe-71-n3v">
-                        <rect key="frame" x="157" y="20" width="27.5" height="41"/>
+                        <rect key="frame" x="167" y="20" width="27.5" height="41"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUf-8D-bhw">
                                 <rect key="frame" x="0.0" y="0.0" width="27.5" height="12"/>
@@ -48,7 +48,7 @@
                         </subviews>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6tu-hf-kZi">
-                        <rect key="frame" x="194.5" y="20" width="27.5" height="41"/>
+                        <rect key="frame" x="204.5" y="20" width="27.5" height="41"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Q6-I5-8jp">
                                 <rect key="frame" x="0.0" y="0.0" width="27.5" height="12"/>
@@ -95,7 +95,7 @@
                     <constraint firstItem="jmw-A8-qxT" firstAttribute="leading" secondItem="gnj-4x-QDl" secondAttribute="leading" constant="15" id="eWP-bK-u2X"/>
                     <constraint firstItem="Ooe-71-n3v" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jmw-A8-qxT" secondAttribute="trailing" constant="10" id="mdl-6F-iX8"/>
                     <constraint firstItem="9ve-i7-V8t" firstAttribute="leading" secondItem="6tu-hf-kZi" secondAttribute="trailing" constant="190" id="ptw-v4-jST">
-                        <variation key="widthClass=compact" constant="130"/>
+                        <variation key="widthClass=compact" constant="120"/>
                     </constraint>
                     <constraint firstItem="9ve-i7-V8t" firstAttribute="leading" secondItem="l3i-8W-PNf" secondAttribute="trailing" constant="50" id="qm9-Vl-tUJ">
                         <variation key="widthClass=compact" constant="10"/>
