@@ -136,6 +136,11 @@ extension SettingsViewController {
         case Row.ResetEventsCell.rawValue:
             EventService.shared.removeAllEvents()
             
+            let alert = UIAlertController(title: "Events deleted".localized, message: nil, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            navigationController?.present(alert, animated: true, completion: nil)
+            
         default:
             break
         }

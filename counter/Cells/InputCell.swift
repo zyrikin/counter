@@ -25,6 +25,7 @@ final class InputCell: BaseTableViewCell {
         $0.font = UIFont.defaultFont(14)
         $0.textColor = UIColor.white
         $0.placeholderColor = UIColor.white.withAlphaComponent(0.8)
+        $0.floatingLabelYPadding = 8
         $0.autocorrectionType = .no
         $0.enablesReturnKeyAutomatically = true
         $0.keyboardAppearance = .dark
@@ -37,7 +38,7 @@ final class InputCell: BaseTableViewCell {
         
         contentView.addSubview(inputTextField)
         inputTextField.snp.makeConstraints { make in
-            make.edges.equalTo(contentView).inset(UIEdgeInsetsMake(8, 20, 8, 20))
+            make.edges.equalTo(contentView).inset(UIEdgeInsetsMake(0, 20, 0, 0))
         }
     }
 }

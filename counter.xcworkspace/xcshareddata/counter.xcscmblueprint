@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "B7DD01852D2883CEE3A33E749C2DB98A9D9EA762",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "D3397859C3DD5D392023108DD4DD7D4C22D266E1" : 9223372036854775807,
+    "B7DD01852D2883CEE3A33E749C2DB98A9D9EA762" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "FA3AFECE-4BB0-4320-8DA2-0DE0F5E38A8A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "D3397859C3DD5D392023108DD4DD7D4C22D266E1" : "NZKit\/",
+    "B7DD01852D2883CEE3A33E749C2DB98A9D9EA762" : "counter\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "counter",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "counter.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/zyrikin\/counter.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B7DD01852D2883CEE3A33E749C2DB98A9D9EA762"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/zyrikin\/NZKit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D3397859C3DD5D392023108DD4DD7D4C22D266E1"
+    }
+  ]
+}

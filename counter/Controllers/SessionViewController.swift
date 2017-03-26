@@ -99,7 +99,7 @@ final class SessionViewController: UIViewController {
         let isHorizontallyCompact = traitCollection.horizontalSizeClass == .compact
         let column: CGFloat = isHorizontallyCompact ? 3 : 4
         
-        let l = (size.width - flowLayout.sectionInset.left - flowLayout.sectionInset.right - (3*flowLayout.minimumInteritemSpacing)) / column
+        let l = (size.width - flowLayout.sectionInset.left - flowLayout.sectionInset.right - ((column-1)*flowLayout.minimumInteritemSpacing)) / column
         flowLayout.itemSize = CGSize(width: l, height: 100)
     }
     

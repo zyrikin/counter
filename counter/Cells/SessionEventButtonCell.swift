@@ -54,8 +54,9 @@ final class SessionEventButtonCell: UICollectionViewCell {
         
         button.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(20)
-            make.right.equalToSuperview().offset(-20)
+            
+            make.left.equalToSuperview().offset(10)
+            make.right.equalToSuperview().offset(-10)
             make.centerY.equalToSuperview()
             make.top.greaterThanOrEqualToSuperview().offset(20)
             make.bottom.lessThanOrEqualToSuperview().offset(-20)
@@ -88,7 +89,7 @@ fileprivate extension SessionEventButtonCell {
     func setup() {
         let isHorizontallyCompact = traitCollection.horizontalSizeClass == .compact
         let fontSize: CGFloat = isHorizontallyCompact ? 17 : 24
-        let numberOfLines = isHorizontallyCompact ? 1 : 3
+        let numberOfLines = isHorizontallyCompact ? 2 : 3
         
         self.titleLabel.font = UIFont.defaultBoldFont(fontSize)
         self.titleLabel.numberOfLines = numberOfLines
