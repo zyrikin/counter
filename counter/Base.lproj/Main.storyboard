@@ -47,7 +47,7 @@
                                         <rect key="frame" x="0.0" y="28" width="1024" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vju-FE-4wj" id="ufa-Oh-PcZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Button" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyM-4f-UfV">
@@ -248,7 +248,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XLK-u9-2fU">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1mv-Kq-xLH">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="1mv-Kq-xLH">
                             <connections>
                                 <segue destination="o7f-U7-PKm" kind="unwind" unwindAction="prepareForUnWindWithSegue:" id="HVY-Kd-oOf"/>
                             </connections>
