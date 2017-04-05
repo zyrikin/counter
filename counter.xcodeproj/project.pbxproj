@@ -490,7 +490,7 @@
 				TargetAttributes = {
 					9F626D921E6F49000031D7C2 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 6ATVRY6Y9T;
+						DevelopmentTeam = 8369547UW5;
 						ProvisioningStyle = Automatic;
 					};
 					9F626DA61E6F49000031D7C2 = {
@@ -913,9 +913,9 @@
 			baseConfigurationReference = A41CE3B880CA6DF937680EA7 /* Pods-counter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6ATVRY6Y9T;
+				DEVELOPMENT_TEAM = 8369547UW5;
 				INFOPLIST_FILE = counter/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zaria.counter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -928,9 +928,9 @@
 			baseConfigurationReference = 2A936DA9AC9B517DD4C41D6D /* Pods-counter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6ATVRY6Y9T;
+				DEVELOPMENT_TEAM = 8369547UW5;
 				INFOPLIST_FILE = counter/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zaria.counter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
