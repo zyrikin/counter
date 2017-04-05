@@ -17,7 +17,12 @@ final class ButtonTableViewCell: BaseTableViewCell {
         
         buttonLabel.textColor = UIColor.callToAction
         buttonLabel.font = UIFont.defaultBoldFont(17)
-        buttonLabel.adjustsFontForContentSizeCategory = true
+        if #available(iOS 10.0, *) {
+            buttonLabel.adjustsFontForContentSizeCategory = true
+        } else {
+            buttonLabel.adjustsFontSizeToFitWidth = true
+            buttonLabel.minimumScaleFactor = 0.7
+        }
     }
 
 }

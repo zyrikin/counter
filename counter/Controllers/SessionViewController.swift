@@ -105,11 +105,19 @@ final class SessionViewController: UIViewController {
     
     @objc func startResumeSession() {
         mode = .ongoing
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] (timer) in
-            if let session = self?.session {
-                SessionService.shared.incrementDuration(session: session)
-            }
-        })
+        if #available(iOS 10.0, *) {
+            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] (timer) in
+                self?.incrementDuration(timer: timer)
+            })
+        } else {
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(incrementDuration(timer:)), userInfo: nil, repeats: true)
+        }
+    }
+    
+    func incrementDuration(timer: Timer) {
+        if let session = self.session {
+            SessionService.shared.incrementDuration(session: session)
+        }
     }
     
     @objc func pauseSession() {
